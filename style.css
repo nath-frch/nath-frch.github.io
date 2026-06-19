@@ -861,3 +861,68 @@ section {
     .project-card:nth-child(1) { animation-delay: 0.1s; }
     .project-card:nth-child(2) { animation-delay: 0.2s; }
 }
+
+/* ===== Lightbox : agrandissement des images au clic ===== */
+.image-SAE {
+    cursor: zoom-in;
+}
+
+.lightbox-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    cursor: zoom-out;
+}
+
+.lightbox-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lightbox-img {
+    max-width: 95%;
+    max-height: 90%;
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    cursor: default;
+    transform: scale(0.96);
+    transition: transform 0.3s ease;
+}
+
+.lightbox-overlay.active .lightbox-img {
+    transform: scale(1);
+}
+
+.lightbox-close {
+    position: fixed;
+    top: 1rem;
+    right: 1.6rem;
+    color: #fff;
+    font-size: 2.5rem;
+    line-height: 1;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 2001;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.lightbox-close:hover {
+    color: #e17055;
+    transform: scale(1.1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .lightbox-overlay,
+    .lightbox-img {
+        transition: none;
+    }
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAÉ3.01</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" type="image/png" href="img/icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>SAÉ3.01 - Mettre en oeuvre un système de transmission</h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                <a href="../index.html#SAE" class="nav-link">Accueil</a>
+                </li>
+            </ul>
+            <div class="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <section id="projets" class="projects">
+        <div class="container">
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>Le projet :</h3>
+                        <p>Dans le cadre de cette SAÉ réalisée en groupe, notre objectif était de concevoir et de déployer une architecture IoT bidirectionnelle de bout en bout pour assurer la transmission de données entre une interface utilisateur et un système embarqué.</p>
+                        <p>Pour ce faire, nous avons d'abord configuré une Raspberry Pi faisant office de serveur local, sur laquelle nous avons intégré un broker (MQTT) et développé une interface web dynamique à l'aide du framework Flask en Python. En parallèle, j'ai participé à la programmation d'un microcontrôleur ESP32 pour le connecter au réseau afin qu'il communique avec notre serveur. Cette installation nous a permis de gérer les flux de données dans les deux sens : l'envoi d'une commande depuis la page web pour allumer une LED, et la remontée d'informations en temps réel vers le serveur grâce à un bouton poussoir physique câblé sur l'ESP32 pour éteindre cette même LED.</p>
+                        
+                        <!--
+                        <div class="image-sae">
+                            <p>Voici un aperçu du résultat final :</p>
+                            <div class="image-gallery">
+                                <img src="img/" alt="" class="image-SAE">
+                                <img src="img/" alt="" class="image-SAE">
+                            </div>
+                        -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>Apprentissages critiques :</h3>
+                        <ul>
+                            <li>AC12.03 | Déployer des supports de transmission</li>
+                            <li>AC22.01 | Déployer et caractériser des systèmes de transmissions complexes</li>
+                            <li>AC23.02 | Développer une application à partir d’un cahier des charges donné, pour le Web ou les périphériques mobiles </li>
+                            <li>AC23.03 | Utiliser un protocole réseau pour programmer une application client/serveur</li>
+                            <li>AC23.05 | Accéder à un ensemble de données depuis une application et/ou un site web</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <script src="../script.js"></script>
+</body>
+</html>
