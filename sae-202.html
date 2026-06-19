@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SAÉ[X.XX]</title>
+    <title>SAÉ2.02</title>
     <link rel="stylesheet" href="../style.css">
     <link rel="icon" type="image/png" href="img/icon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -13,7 +13,7 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <h2>SAÉ[X.XX] - [Titre du projet]</h2>
+                <h2>SAÉ2.02 - Mesurer et caractériser un signal ou un système</h2>
             </div>
             <ul class="nav-menu">
                 <li class="nav-item">
@@ -36,16 +36,19 @@
                 <div class="project-card">
                     <div class="project-content">
                         <h3>Le projet :</h3>
-                        <p>[Décris le contexte et l'objectif de la SAÉ.]</p>
-                        <p>[Explique ce que tu as concrètement réalisé : étapes, choix techniques, outils utilisés.]</p>
+                        <p>Création d'une web radio portable à base d'un ESP32 et d'un convertisseur numérique-analogique (CNA), avec sortie audio sur prise jack.</p>
+                        <p>Durant cette SAÉ, nous avons créé en binôme une web radio. On récupère l'URL du flux, soit via des URL prédéfinies dans le code, soit via une interface MQTT que nous avons développée, puis on l'envoie vers le convertisseur. Au préalable, nous devions appliquer une transformée de Fourier (FFT) pour que le convertisseur fonctionne correctement et puisse restituer le son sur la prise jack intégrée.</p>
 
+                        <!-- Ajoute tes captures ici : place les images dans le dossier d'images du semestre,
+                             puis décommente ce bloc et remplace les chemins.
                         <div class="image-sae">
                             <p>Voici un aperçu du résultat final :</p>
                             <div class="image-gallery">
-                                <img src="img/[dossier]/[image1].png" alt="[Description de l'image 1]" class="image-SAE">
-                                <img src="img/[dossier]/[image2].png" alt="[Description de l'image 2]" class="image-SAE">
+                                <img src="../img/SAE202/[image1].png" alt="[description]" class="image-SAE">
+                                <img src="../img/SAE202/[image2].png" alt="[description]" class="image-SAE">
                             </div>
                         </div>
+                        -->
                     </div>
                 </div>
 
@@ -54,9 +57,9 @@
                     <div class="project-content">
                         <h3>Apprentissages critiques :</h3>
                         <ul>
-                            <li>AC[XX.XX] | [Intitulé de l'apprentissage critique]</li>
-                            <li>AC[XX.XX] | [Intitulé de l'apprentissage critique]</li>
-                            <li>AC[XX.XX] | [Intitulé de l'apprentissage critique]</li>
+                            <li>AC12.01 | Mesurer, analyser et commenter les signaux</li>
+                            <li>AC12.02 | Caractériser des systèmes de transmissions élémentaires et découvrir la modélisation mathématique de leur fonctionnement</li>
+                            <li>AC12.05 | Communiquer avec un tiers (client, collaborateur...) et adapter son discours et sa langue à son interlocuteur</li>
                         </ul>
                     </div>
                 </div>

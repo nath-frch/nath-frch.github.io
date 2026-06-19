@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serveur Proxmox</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" type="image/png" href="../img/icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>Serveur Proxmox — Auto-hébergement</h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                <a href="../index.html#projet" class="nav-link">Accueil</a>
+                </li>
+            </ul>
+            <div class="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <section id="projets" class="projects">
+        <div class="container">
+            <div class="projects-grid">
+
+                <!-- Carte 1 : présentation -->
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>Le projet :</h3>
+                        <p>Proxmox VE est un hyperviseur open source qui me sert de laboratoire personnel à la maison. Il me permet de faire tourner plusieurs machines virtuelles et conteneurs LXC sur une seule machine, et donc de tester librement des configurations réseau, des serveurs et des services.</p>
+                        <p>Les services que j'héberge : <strong>[à compléter — par exemple un serveur de fichiers, un reverse proxy, un outil de supervision, un serveur de jeux…]</strong>.</p>
+                        <p>Le matériel utilisé : <strong>[à compléter — processeur, mémoire vive, stockage]</strong>.</p>
+
+                        <!-- Ajoute ici tes captures (tableau de bord Proxmox, tes VM, etc.).
+                             Place les images dans le dossier img/perso/ puis décommente ce bloc :
+                        <div class="image-sae">
+                            <p>Voici un aperçu :</p>
+                            <div class="image-gallery">
+                                <img src="../img/perso/[capture1].png" alt="[description]" class="image-SAE">
+                                <img src="../img/perso/[capture2].png" alt="[description]" class="image-SAE">
+                            </div>
+                        </div>
+                        -->
+                    </div>
+                </div>
+
+                <!-- Carte 2 : ce que ça apporte -->
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>Ce que ça m'apporte :</h3>
+                        <ul>
+                            <li>Virtualisation et gestion d'un hyperviseur (VM, conteneurs LXC, snapshots, sauvegardes)</li>
+                            <li>Administration de serveurs Linux et mise en place de services</li>
+                            <li>Configuration réseau (ponts, VLAN, pare-feu, reverse proxy)</li>
+                            <li>Auto-hébergement et sécurisation de l'accès aux services</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <script src="../script.js"></script>
+</body>
+</html>
