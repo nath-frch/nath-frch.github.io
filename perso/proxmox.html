@@ -32,34 +32,39 @@
         <div class="container">
             <div class="projects-grid">
 
-                <!-- Carte 1 : présentation -->
                 <div class="project-card">
                     <div class="project-content">
                         <h3>Le projet :</h3>
-                        <p>Proxmox VE est un hyperviseur open source qui me sert de laboratoire personnel à la maison. Il me permet de faire tourner plusieurs machines virtuelles et conteneurs LXC sur une seule machine, et donc de tester librement des configurations réseau, des serveurs et des services.</p>
-                        <p>Les services que j'héberge : <strong>[à compléter — par exemple un serveur de fichiers, un reverse proxy, un outil de supervision, un serveur de jeux…]</strong>.</p>
-                        <p>Le matériel utilisé : <strong>[à compléter — processeur, mémoire vive, stockage]</strong>.</p>
+                        <p>Proxmox VE est un hyperviseur open source qui me sert de laboratoire personnel à la maison. Mon installation repose sur un cluster Proxmox composé de plusieurs nœuds, accompagné d'un serveur de stockage TrueNAS à côté. Le cluster me permet de faire tourner de nombreuses machines virtuelles et conteneurs LXC, de répartir la charge entre les nœuds et de tester librement des configurations réseau, des serveurs et des services.</p>
+                        <p>Les services que j'héberge :</p>
+                        <div class="project-tech">
+                            <span>Pi-hole (DNS / DHCP)</span>
+                            <span>Reverse proxy</span>
+                            <span>VPN</span>
+                            <span>Serveur de jeux</span>
+                            <span>Multimédia (films, séries)</span>
+                            <span>Stockage (TrueNAS)</span>
+                            <span>Home Assistant (IoT)</span>
+                        </div>
+                        <p>Le matériel utilisé : essentiellement du matériel récupéré gratuitement (de vieux PC de plus de 4 ans) pour les nœuds du cluster, ainsi qu'un serveur TrueNAS pour le stockage.</p>
 
-                        <!-- Ajoute ici tes captures (tableau de bord Proxmox, tes VM, etc.).
-                             Place les images dans le dossier img/perso/ puis décommente ce bloc :
                         <div class="image-sae">
                             <p>Voici un aperçu :</p>
                             <div class="image-gallery">
-                                <img src="../img/perso/[capture1].png" alt="[description]" class="image-SAE">
-                                <img src="../img/perso/[capture2].png" alt="[description]" class="image-SAE">
+                                <img src="../img/perso/proxmox-1.png" alt="Tableau de bord du cluster Proxmox" class="image-SAE">
                             </div>
                         </div>
-                        -->
                     </div>
                 </div>
 
-                <!-- Carte 2 : ce que ça apporte -->
                 <div class="project-card">
                     <div class="project-content">
                         <h3>Ce que ça m'apporte :</h3>
                         <ul>
                             <li>Virtualisation et gestion d'un hyperviseur (VM, conteneurs LXC, snapshots, sauvegardes)</li>
+                            <li>Mise en cluster de plusieurs nœuds (répartition de la charge, migration de machines virtuelles)</li>
                             <li>Administration de serveurs Linux et mise en place de services</li>
+                            <li>Gestion d'un stockage centralisé avec TrueNAS</li>
                             <li>Configuration réseau (ponts, VLAN, pare-feu, reverse proxy)</li>
                             <li>Auto-hébergement et sécurisation de l'accès aux services</li>
                         </ul>
