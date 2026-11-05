@@ -37,7 +37,14 @@
         .dt-swatches em { position: absolute; bottom: 3px; left: 0; right: 0; text-align: center; font: 600 .52rem var(--mono); font-style: normal; color: #fff; mix-blend-mode: difference; opacity: .85; }
         .dt-body { padding: 1rem 1.2rem 1.2rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
         .dt-body h3 { font-size: 1.05rem; }
-        .dt-card .btn-primary { background: var(--pa); color: var(--on-a); }
+        .dt-links { display: flex; align-items: center; gap: .35rem; font-size: .85rem; color: var(--muted); }
+        .dt-links a { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: var(--pa); color: var(--on-a); font-weight: 700; text-decoration: none; }
+        .dt-links a:hover { filter: brightness(1.15); }
+        .dt-designs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1.5rem; }
+        .dt-designs div { padding: 1.1rem 1.2rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); }
+        .dt-designs b { font-family: var(--display); font-size: 1.05rem; }
+        .dt-designs p { color: var(--muted); font-size: .9rem; margin-top: .3rem; }
+        @media (max-width: 800px) { .dt-designs { grid-template-columns: 1fr; } }
         .dt-steps { display: grid; gap: .4rem; margin-top: 1rem; color: var(--muted); padding-left: 1.2rem; }
     </style>
 </head>
@@ -61,13 +68,18 @@
         <div class="container">
             <div class="section-head">
                 <p class="hero-hello">page de test</p>
-                <h1 class="section-title">Choisis la palette du portfolio</h1>
-                <p class="section-intro">Chaque palette s'applique à tout le site, en mode clair (à gauche) et en mode sombre (à droite).</p>
+                <h1 class="section-title">Choisis le design et la palette</h1>
+                <p class="section-intro">3 mises en page × 9 palettes, chacune en mode clair (à gauche) et sombre (à droite).</p>
                 <ol class="dt-steps">
-                    <li>Clique sur <strong>« Tester ce design »</strong> pour ouvrir le site avec cette palette.</li>
+                    <li>Sous chaque palette, clique sur <strong>1</strong>, <strong>2</strong> ou <strong>3</strong> pour ouvrir le site dans ce design avec cette palette.</li>
                     <li>Le bouton <i class="fas fa-moon"></i> / <i class="fas fa-sun"></i> en haut bascule entre clair et sombre.</li>
-                    <li>Les pastilles en bas à gauche permettent de changer de palette sans revenir ici.</li>
+                    <li>En bas à gauche du site, tu peux changer de palette et de design sans revenir ici.</li>
                 </ol>
+                <div class="dt-designs">
+                    <div><b>1 · Carnet</b><p>Photo façon polaroid, note « En ce moment », projets en cartes.</p></div>
+                    <div><b>2 · Profil</b><p>Photo et menu dans une colonne fixe à gauche, projets rangés par semestre.</p></div>
+                    <div><b>3 · Badge</b><p>Ta photo sur un badge d'accès d'entreprise, projets sur une « ligne de métro ».</p></div>
+                </div>
             </div>
             <div class="dt-grid">
             <article class="dt-card" style="--p0:#0E0B1D;--p1:#2A1E4D;--p4:#C9C2E3;--pa:#5A3B8C;--on-a:#fff;--pa-d:#8B7CC7;--on-a-d:#0E0B1D;--hl:#8B7CC7">
@@ -88,7 +100,7 @@
                 <div class="dt-swatches"><span style="background:#0E0B1D"><em>#0E0B1D</em></span><span style="background:#2A1E4D"><em>#2A1E4D</em></span><span style="background:#5A3B8C"><em>#5A3B8C</em></span><span style="background:#8B7CC7"><em>#8B7CC7</em></span><span style="background:#C9C2E3"><em>#C9C2E3</em></span><span style="background:#3A3A52"><em>#3A3A52</em></span></div>
                 <div class="dt-body">
                     <h3>1 · Violet nuit</h3>
-                    <a class="btn btn-primary btn-small" href="index.html?palette=violet">Tester ce design <i class="fas fa-arrow-right"></i></a>
+                    <div class="dt-links"><span>Tester :</span><a href="index.html?palette=violet" title="Design 1 · Carnet">1</a><a href="design-2-profil.html?palette=violet" title="Design 2 · Profil">2</a><a href="design-3-badge.html?palette=violet" title="Design 3 · Badge">3</a></div>
                 </div>
             </article>
             <article class="dt-card" style="--p0:#1A120E;--p1:#3A2418;--p4:#D5C4AE;--pa:#6B4A2E;--on-a:#fff;--pa-d:#A88462;--on-a-d:#1A120E;--hl:#A88462">
@@ -109,7 +121,7 @@
                 <div class="dt-swatches"><span style="background:#1A120E"><em>#1A120E</em></span><span style="background:#3A2418"><em>#3A2418</em></span><span style="background:#6B4A2E"><em>#6B4A2E</em></span><span style="background:#A88462"><em>#A88462</em></span><span style="background:#D5C4AE"><em>#D5C4AE</em></span><span style="background:#4A4A46"><em>#4A4A46</em></span></div>
                 <div class="dt-body">
                     <h3>2 · Caramel</h3>
-                    <a class="btn btn-primary btn-small" href="index.html?palette=caramel">Tester ce design <i class="fas fa-arrow-right"></i></a>
+                    <div class="dt-links"><span>Tester :</span><a href="index.html?palette=caramel" title="Design 1 · Carnet">1</a><a href="design-2-profil.html?palette=caramel" title="Design 2 · Profil">2</a><a href="design-3-badge.html?palette=caramel" title="Design 3 · Badge">3</a></div>
                 </div>
             </article>
             <article class="dt-card" style="--p0:#0F1F17;--p1:#1E3A2E;--p4:#C7CBB8;--pa:#3E5A3F;--on-a:#fff;--pa-d:#9DB08F;--on-a-d:#0F1F17;--hl:#8FA287">
@@ -130,7 +142,7 @@
                 <div class="dt-swatches"><span style="background:#0F1F17"><em>#0F1F17</em></span><span style="background:#1E3A2E"><em>#1E3A2E</em></span><span style="background:#3E5A3F"><em>#3E5A3F</em></span><span style="background:#6B7F67"><em>#6B7F67</em></span><span style="background:#C7CBB8"><em>#C7CBB8</em></span><span style="background:#3D4337"><em>#3D4337</em></span></div>
                 <div class="dt-body">
                     <h3>3 · Olive</h3>
-                    <a class="btn btn-primary btn-small" href="index.html?palette=olive">Tester ce design <i class="fas fa-arrow-right"></i></a>
+                    <div class="dt-links"><span>Tester :</span><a href="index.html?palette=olive" title="Design 1 · Carnet">1</a><a href="design-2-profil.html?palette=olive" title="Design 2 · Profil">2</a><a href="design-3-badge.html?palette=olive" title="Design 3 · Badge">3</a></div>
                 </div>
             </article>
             <article class="dt-card" style="--p0:#0B132B;--p1:#1C2541;--p4:#F4D6B0;--pa:#1C2541;--on-a:#fff;--pa-d:#5BC0DE;--on-a-d:#0B132B;--hl:#D97706">
@@ -151,7 +163,7 @@
                 <div class="dt-swatches"><span style="background:#0B132B"><em>#0B132B</em></span><span style="background:#1C2541"><em>#1C2541</em></span><span style="background:#3A506B"><em>#3A506B</em></span><span style="background:#5BC0DE"><em>#5BC0DE</em></span><span style="background:#F4D6B0"><em>#F4D6B0</em></span><span style="background:#D97706"><em>#D97706</em></span></div>
                 <div class="dt-body">
                     <h3>4 · Nuit &amp; ambre</h3>
-                    <a class="btn btn-primary btn-small" href="index.html?palette=ocean">Tester ce design <i class="fas fa-arrow-right"></i></a>
+                    <div class="dt-links"><span>Tester :</span><a href="index.html?palette=ocean" title="Design 1 · Carnet">1</a><a href="design-2-profil.html?palette=ocean" title="Design 2 · Profil">2</a><a href="design-3-badge.html?palette=ocean" title="Design 3 · Badge">3</a></div>
                 </div>
             </article>
             <article class="dt-card" style="--p0:#0B0F0D;--p1:#1F2A1F;--p4:#D9C7A3;--pa:#3E5A3F;--on-a:#fff;--pa-d:#8CA98C;--on-a-d:#0B0F0D;--hl:#B08D57">
@@ -172,7 +184,7 @@
                 <div class="dt-swatches"><span style="background:#0B0F0D"><em>#0B0F0D</em></span><span style="background:#1F2A1F"><em>#1F2A1F</em></span><span style="background:#3E5A3F"><em>#3E5A3F</em></span><span style="background:#8CA98C"><em>#8CA98C</em></span><span style="background:#D9C7A3"><em>#D9C7A3</em></span><span style="background:#B08D57"><em>#B08D57</em></span></div>
                 <div class="dt-body">
                     <h3>5 · Forêt &amp; laiton</h3>
-                    <a class="btn btn-primary btn-small" href="index.html?palette=foret">Tester ce design <i class="fas fa-arrow-right"></i></a>
+                    <div class="dt-links"><span>Tester :</span><a href="index.html?palette=foret" title="Design 1 · Carnet">1</a><a href="design-2-profil.html?palette=foret" title="Design 2 · Profil">2</a><a href="design-3-badge.html?palette=foret" title="Design 3 · Badge">3</a></div>
                 </div>
             </article>
             <article class="dt-card" style="--p0:#0A0F14;--p1:#0F3D3E;--p4:#EADCC8;--pa:#2E6F73;--on-a:#fff;--pa-d:#7FB3B8;--on-a-d:#0A0F14;--hl:#C6601F">
@@ -193,7 +205,7 @@
                 <div class="dt-swatches"><span style="background:#0A0F14"><em>#0A0F14</em></span><span style="background:#0F3D3E"><em>#0F3D3E</em></span><span style="background:#2E6F73"><em>#2E6F73</em></span><span style="background:#7FB3B8"><em>#7FB3B8</em></span><span style="background:#EADCC8"><em>#EADCC8</em></span><span style="background:#C6601F"><em>#C6601F</em></span></div>
                 <div class="dt-body">
                     <h3>6 · Lagon &amp; rouille</h3>
-                    <a class="btn btn-primary btn-small" href="index.html?palette=lagon">Tester ce design <i class="fas fa-arrow-right"></i></a>
+                    <div class="dt-links"><span>Tester :</span><a href="index.html?palette=lagon" title="Design 1 · Carnet">1</a><a href="design-2-profil.html?palette=lagon" title="Design 2 · Profil">2</a><a href="design-3-badge.html?palette=lagon" title="Design 3 · Badge">3</a></div>
                 </div>
             </article>
             <article class="dt-card" style="--p0:#1A0F2E;--p1:#3B1B4F;--p4:#F4D7D4;--pa:#7A2E6F;--on-a:#fff;--pa-d:#D6598F;--on-a-d:#1A0F2E;--hl:#FF6B6B">
@@ -214,7 +226,7 @@
                 <div class="dt-swatches"><span style="background:#1A0F2E"><em>#1A0F2E</em></span><span style="background:#3B1B4F"><em>#3B1B4F</em></span><span style="background:#7A2E6F"><em>#7A2E6F</em></span><span style="background:#D6598F"><em>#D6598F</em></span><span style="background:#F4D7D4"><em>#F4D7D4</em></span><span style="background:#FF6B6B"><em>#FF6B6B</em></span></div>
                 <div class="dt-body">
                     <h3>7 · Framboise</h3>
-                    <a class="btn btn-primary btn-small" href="index.html?palette=framboise">Tester ce design <i class="fas fa-arrow-right"></i></a>
+                    <div class="dt-links"><span>Tester :</span><a href="index.html?palette=framboise" title="Design 1 · Carnet">1</a><a href="design-2-profil.html?palette=framboise" title="Design 2 · Profil">2</a><a href="design-3-badge.html?palette=framboise" title="Design 3 · Badge">3</a></div>
                 </div>
             </article>
             <article class="dt-card" style="--p0:#1A1A1F;--p1:#2D2B55;--p4:#F0D9B5;--pa:#6A5ACD;--on-a:#fff;--pa-d:#F4A62A;--on-a-d:#1A1A1F;--hl:#F4A62A">
@@ -235,7 +247,7 @@
                 <div class="dt-swatches"><span style="background:#1A1A1F"><em>#1A1A1F</em></span><span style="background:#2D2B55"><em>#2D2B55</em></span><span style="background:#6A5ACD"><em>#6A5ACD</em></span><span style="background:#A678B9"><em>#A678B9</em></span><span style="background:#F0D9B5"><em>#F0D9B5</em></span><span style="background:#F4A62A"><em>#F4A62A</em></span></div>
                 <div class="dt-body">
                     <h3>8 · Indigo &amp; orange</h3>
-                    <a class="btn btn-primary btn-small" href="index.html?palette=ember">Tester ce design <i class="fas fa-arrow-right"></i></a>
+                    <div class="dt-links"><span>Tester :</span><a href="index.html?palette=ember" title="Design 1 · Carnet">1</a><a href="design-2-profil.html?palette=ember" title="Design 2 · Profil">2</a><a href="design-3-badge.html?palette=ember" title="Design 3 · Badge">3</a></div>
                 </div>
             </article>
             <article class="dt-card" style="--p0:#121212;--p1:#1F2937;--p4:#F1F5F9;--pa:#334155;--on-a:#fff;--pa-d:#EC4899;--on-a-d:#121212;--hl:#EC4899">
@@ -256,7 +268,7 @@
                 <div class="dt-swatches"><span style="background:#121212"><em>#121212</em></span><span style="background:#1F2937"><em>#1F2937</em></span><span style="background:#334155"><em>#334155</em></span><span style="background:#64748B"><em>#64748B</em></span><span style="background:#F1F5F9"><em>#F1F5F9</em></span><span style="background:#EC4899"><em>#EC4899</em></span></div>
                 <div class="dt-body">
                     <h3>9 · Ardoise &amp; rose</h3>
-                    <a class="btn btn-primary btn-small" href="index.html?palette=slate">Tester ce design <i class="fas fa-arrow-right"></i></a>
+                    <div class="dt-links"><span>Tester :</span><a href="index.html?palette=slate" title="Design 1 · Carnet">1</a><a href="design-2-profil.html?palette=slate" title="Design 2 · Profil">2</a><a href="design-3-badge.html?palette=slate" title="Design 3 · Badge">3</a></div>
                 </div>
             </article>
             </div>

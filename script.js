@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- Lien actif dans le menu selon la section visible ---
-    const navLinks = document.querySelectorAll('.nav-menu a[href^="#"]');
+    const navLinks = document.querySelectorAll('.nav-menu a[href^="#"], .side-nav a[href^="#"]');
     if (navLinks.length && 'IntersectionObserver' in window) {
         const byId = {};
         navLinks.forEach(link => { byId[link.getAttribute('href').slice(1)] = link; });
@@ -85,36 +85,8 @@ document.addEventListener('DOMContentLoaded', () => {
         sections.forEach(s => spy.observe(s));
     }
 
-    // --- Filtres des projets SAÉ ---
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const cards = document.querySelectorAll('#sae-grid .project-card');
-
-    if (filterBtns.length && cards.length) {
-        // Affiche le nombre de projets par filtre
-        filterBtns.forEach(btn => {
-            const f = btn.dataset.filter;
-            const n = f === 'all' ? cards.length : document.querySelectorAll(`#sae-grid .project-card[data-semestre="${f}"]`).length;
-            const count = document.createElement('span');
-            count.className = 'count';
-            count.textContent = n;
-            btn.appendChild(count);
-        });
-
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const f = btn.dataset.filter;
-                filterBtns.forEach(b => {
-                    b.classList.toggle('active', b === btn);
-                    b.setAttribute('aria-pressed', String(b === btn));
-                });
-                cards.forEach(card => {
-                    const show = f === 'all' || card.dataset.semestre === f;
-                    card.classList.toggle('is-hidden', !show);
-                    if (show) card.classList.add('in-view');
-                });
-            });
-        });
-    }
+    // --- Projets : générés à partir de data/projets.js ---
+    renderProjects();
 
     // --- Apparition douce des blocs au défilement ---
     const revealEls = document.querySelectorAll('.reveal');
@@ -168,6 +140,22 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             picker.appendChild(b);
         });
+        const DESIGNS = [['index.html', 'Carnet'], ['design-2-profil.html', 'Profil'], ['design-3-badge.html', 'Badge']];
+        const here = location.pathname.split('/').pop() || 'index.html';
+        if (!inSub) {
+            const sep = document.createElement('span');
+            sep.className = 'pp-label';
+            sep.textContent = 'Design :';
+            picker.appendChild(sep);
+            DESIGNS.forEach(([href, label], i) => {
+                const a = document.createElement('a');
+                a.href = href;
+                a.textContent = i + 1;
+                a.title = label;
+                a.className = 'pp-design' + (here === href ? ' current' : '');
+                picker.appendChild(a);
+            });
+        }
         const back = document.createElement('a');
         back.href = (inSub ? '../' : '') + 'design-test.html';
         back.textContent = 'Comparer';
@@ -227,3 +215,107 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+
+/* =========================================================
+   Rendu des projets à partir de window.PORTFOLIO (data/projets.js)
+   Un conteneur <div data-projects="sae|perso" data-layout="cards|groups">
+   se remplit tout seul. <div data-filters="sae"> crée les filtres.
+   ========================================================= */
+function esc(t) {
+    return String(t == null ? '' : t).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+}
+
+// Année scolaire d'un semestre (S1-S2 = 1re année, etc.)
+const ANNEES = { 1: '2024 — 2025', 2: '2025 — 2026', 3: '2026 — 2027' };
+const anneeDe = sem => Math.ceil(sem / 2);
+
+function renderProjects() {
+    const data = window.PORTFOLIO;
+    if (!data) return;
+    const comp = data.competences || {};
+    const sae = (data.sae || []).slice().sort((a, b) => b.semestre - a.semestre || b.code.localeCompare(a.code, 'fr', { numeric: true }));
+    const dernierSem = sae.length ? sae[0].semestre : 0;
+
+    const badge = p => esc(p.competences_texte || ('Compétence ' + p.competence + (comp[p.competence] ? ' · ' + comp[p.competence] : '')));
+    const tech = p => (p.tech || []).map(t => '<span>' + esc(t) + '</span>').join('');
+    const links = (p, plus) =>
+        (p.code_source ? '<a href="' + esc(p.code_source) + '" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> Code</a>' : '') +
+        '<a href="' + esc(p.page) + '" class="more">' + plus + ' <i class="fas fa-arrow-right"></i></a>';
+    const isNew = p => p.semestre && p.semestre === dernierSem;
+
+    // Carte (design "Carnet")
+    const card = (p, kind) => '<article class="project-card reveal" data-semestre="S' + (p.semestre || '') + '" data-competence="' + (p.competence || '') + '">' +
+        '<div class="project-content">' +
+            '<div class="project-top"><span class="project-code">' + esc(p.code) + '</span>' +
+                (isNew(p) ? '<span class="tag-new">nouveau !</span>' : '') +
+                '<span class="project-sem">' + (kind === 'sae' ? 'Semestre ' + p.semestre : esc(p.etat || 'Perso')) + '</span></div>' +
+            '<h3><a href="' + esc(p.page) + '">' + esc(p.titre) + '</a></h3>' +
+            '<span class="project-badge">' + (kind === 'sae' ? badge(p) : 'Homelab') + '</span>' +
+            '<p>' + esc(p.resume) + '</p>' +
+            '<div class="project-tech">' + tech(p) + '</div>' +
+            '<div class="project-links">' + links(p, kind === 'sae' ? 'Voir le projet' : 'En savoir plus') + '</div>' +
+        '</div></article>';
+
+    // Ligne (designs "Profil" et "Badge") : regroupée par semestre
+    const row = (p, kind) => '<article class="project-row reveal" data-semestre="S' + (p.semestre || '') + '" data-competence="' + (p.competence || '') + '">' +
+        '<span class="row-dot" aria-hidden="true"></span>' +
+        '<div class="row-main">' +
+            '<div class="row-meta"><span class="project-code">' + esc(p.code) + '</span>' +
+                '<span class="project-badge">' + (kind === 'sae' ? badge(p) : esc(p.etat || 'Perso')) + '</span>' +
+                (isNew(p) ? '<span class="tag-new">nouveau !</span>' : '') + '</div>' +
+            '<h3><a href="' + esc(p.page) + '">' + esc(p.titre) + '</a></h3>' +
+            '<p>' + esc(p.resume) + '</p>' +
+            '<div class="project-tech">' + tech(p) + '</div>' +
+        '</div>' +
+        '<div class="project-links">' + links(p, kind === 'sae' ? 'Détails' : 'En savoir plus') + '</div>' +
+    '</article>';
+
+    document.querySelectorAll('[data-projects]').forEach(box => {
+        const kind = box.dataset.projects;
+        const layout = box.dataset.layout || 'cards';
+        const list = kind === 'sae' ? sae : (data.perso || []);
+        if (layout === 'groups' && kind === 'sae') {
+            const sems = [...new Set(list.map(p => p.semestre))];
+            box.innerHTML = sems.map(s =>
+                '<div class="sem-group" data-semestre="S' + s + '">' +
+                    '<div class="sem-head"><span class="sem-num">S' + s + '</span><span class="sem-year">' + (ANNEES[anneeDe(s)] || '') + ' · ' + anneeDe(s) + (anneeDe(s) === 1 ? 'ʳᵉ' : 'ᵉ') + ' année</span></div>' +
+                    '<div class="sem-items">' + list.filter(p => p.semestre === s).map(p => row(p, kind)).join('') + '</div>' +
+                '</div>').join('');
+        } else if (layout === 'groups') {
+            box.innerHTML = list.map(p => row(p, kind)).join('');
+        } else {
+            box.innerHTML = list.map(p => card(p, kind)).join('');
+        }
+    });
+
+    // Compteurs ("11 SAÉ réalisées"…)
+    document.querySelectorAll('[data-count]').forEach(el => {
+        el.textContent = (data[el.dataset.count] || []).length;
+    });
+
+    // Filtres par semestre (créés automatiquement : S5, S4… apparaîtront seuls)
+    document.querySelectorAll('[data-filters]').forEach(bar => {
+        const target = document.querySelector(bar.dataset.target || '[data-projects="sae"]');
+        if (!target) return;
+        const sems = [...new Set(sae.map(p => p.semestre))];
+        const options = [['all', 'Tous', sae.length]].concat(sems.map(s => ['S' + s, 'Semestre ' + s, sae.filter(p => p.semestre === s).length]));
+        bar.innerHTML = options.map(([f, label, n], i) =>
+            '<button class="filter-btn' + (i === 0 ? ' active' : '') + '" type="button" data-filter="' + f + '" aria-pressed="' + (i === 0) + '">' + label + '<span class="count">' + n + '</span></button>').join('');
+        bar.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const f = btn.dataset.filter;
+                bar.querySelectorAll('.filter-btn').forEach(b => {
+                    b.classList.toggle('active', b === btn);
+                    b.setAttribute('aria-pressed', String(b === btn));
+                });
+                target.querySelectorAll('[data-semestre]').forEach(el => {
+                    const show = f === 'all' || el.dataset.semestre === f;
+                    el.classList.toggle('is-hidden', !show);
+                    if (show) el.querySelectorAll('.reveal').forEach(r => r.classList.add('in-view'));
+                    if (show) el.classList.add('in-view');
+                });
+            });
+        });
+    });
+}

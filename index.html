@@ -67,6 +67,12 @@
             </div>
 
             <!-- Carte "En ce moment" : à mettre à jour de temps en temps -->
+            <div class="hero-side">
+            <!-- Photo : dépose ta photo dans img/moi.jpg (format carré ou portrait) -->
+            <figure class="polaroid">
+                <div class="photo"><img src="img/moi.jpg" alt="Photo de Nathanaël Friedrich" onerror="this.remove()"><span>ta photo ici</span></div>
+                <figcaption>c'est moi !</figcaption>
+            </figure>
             <aside class="now-card" aria-labelledby="now-title">
                 <h2 id="now-title">En ce moment…</h2>
                 <ul>
@@ -85,6 +91,7 @@
                 </ul>
                 <p class="signature">— Nath</p>
             </aside>
+            </div>
         </div>
     </header>
 
@@ -98,7 +105,7 @@
                     <p>Au BUT R&amp;T, j'ai touché à un peu de tout : <strong>réseaux d'entreprise</strong>, objets connectés, applications client/serveur, et maintenant la <strong>cybersécurité</strong>. Les SAÉ m'ont appris à travailler en équipe sur des projets concrets.</p>
                     <p>En alternance, j'ai commencé au <strong>support informatique de niveau 1</strong>. Aujourd'hui je prépare et déploie des plateformes de test et je réalise des PoC. Chez moi, je fais tourner un <strong>cluster Proxmox</strong> pour tester librement tout ce que j'apprends.</p>
                     <div class="about-stats">
-                        <div class="stat"><h3>11</h3><p>SAÉ réalisées</p></div>
+                        <div class="stat"><h3 data-count="sae">11</h3><p>SAÉ réalisées</p></div>
                         <div class="stat"><h3>2 ans</h3><p>d'alternance</p></div>
                         <div class="stat"><h3>1</h3><p>homelab qui tourne</p></div>
                     </div>
@@ -144,8 +151,8 @@
 
                         <ol class="alt-path">
                             <li class="done"><span>2ᵉ année</span>Support informatique niveau 1</li>
-                            <li class="current"><span>3ᵉ année</span>Technicien support &amp; déploiement plateforme de test</li>
-                            <li class="current"><span>En plus</span>Réalisation de PoC</li>
+                            <li class="current"><span>3ᵉ année · aujourd'hui</span>Technicien support &amp; déploiement plateforme de test
+                                <em>Support utilisateurs · déploiement de plateformes de test · réalisation de PoC</em></li>
                         </ol>
 
                         <div class="alt-actions">
@@ -200,170 +207,11 @@
                     <p class="section-intro">Les projets réalisés à l'IUT, du plus récent au plus ancien.</p>
                 </div>
 
-                <div class="filters" role="group" aria-label="Filtrer par semestre">
-                    <button class="filter-btn active" type="button" data-filter="all" aria-pressed="true">Tous</button>
-                    <button class="filter-btn" type="button" data-filter="S3" aria-pressed="false">Semestre 3</button>
-                    <button class="filter-btn" type="button" data-filter="S2" aria-pressed="false">Semestre 2</button>
-                    <button class="filter-btn" type="button" data-filter="S1" aria-pressed="false">Semestre 1</button>
-                </div>
+                <div class="filters" role="group" aria-label="Filtrer par semestre" data-filters="sae"></div>
 
-                <!-- Pour ajouter une SAÉ : copie une carte, place-la EN HAUT de la grille
-                     (les plus récentes en premier) et adapte data-semestre / data-competence. -->
-                <div class="projects-grid" id="sae-grid">
-
-                    <!-- ===== Semestre 3 ===== -->
-                    <article class="project-card reveal" data-semestre="S3" data-competence="3">
-                        <div class="project-content">
-                            <div class="project-top"><span class="project-code">SAÉ3.02</span><span class="tag-new">nouveau !</span><span class="project-sem">Semestre 3</span></div>
-                            <h3><a href="S3/sae-302.html">Développer des applications communicantes</a></h3>
-                            <span class="project-badge">Compétence 3 · Programmer</span>
-                            <p>Une messagerie anonyme basée sur le routage en oignon, avec une chaîne de routeurs virtuels.</p>
-                            <div class="project-tech"><span>Python</span><span>Client/serveur</span><span>Routage en oignon</span></div>
-                            <div class="project-links">
-                                <a href="https://github.com/DrKNath/SAE3.02" rel="noopener noreferrer" target="_blank"><i class="fab fa-github"></i> Code</a>
-                                <a href="S3/sae-302.html" class="more">Voir le projet <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="project-card reveal" data-semestre="S3" data-competence="2">
-                        <div class="project-content">
-                            <div class="project-top"><span class="project-code">SAÉ3.01</span><span class="tag-new">nouveau !</span><span class="project-sem">Semestre 3</span></div>
-                            <h3><a href="S3/sae-301.html">Mettre en œuvre un système de transmission</a></h3>
-                            <span class="project-badge">Compétence 2 · Connecter</span>
-                            <p>Une prise connectée pilotée depuis une page web : ESP32 d'un côté, Raspberry Pi de l'autre.</p>
-                            <div class="project-tech"><span>ESP32</span><span>Raspberry Pi</span><span>MQTT</span><span>Flask</span></div>
-                            <div class="project-links">
-                                <a href="https://github.com/DrKNath/SAE3.01" rel="noopener noreferrer" target="_blank"><i class="fab fa-github"></i> Code</a>
-                                <a href="S3/sae-301.html" class="more">Voir le projet <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- ===== Semestre 2 ===== -->
-                    <article class="project-card reveal" data-semestre="S2" data-competence="1">
-                        <div class="project-content">
-                            <div class="project-top"><span class="project-code">SAÉ2.04</span><span class="project-sem">Semestre 2</span></div>
-                            <h3><a href="S2/sae-204.html">Projet intégratif</a></h3>
-                            <span class="project-badge">Compétences 1, 2 et 3</span>
-                            <p>Un réseau local complet, de la téléphonie sur IP, des données remontées sur un broker et affichées sur le web.</p>
-                            <div class="project-tech"><span>Routage</span><span>ToIP</span><span>MQTT</span><span>Web</span></div>
-                            <div class="project-links">
-                                <a href="https://github.com/DrKNath/SAE2.04" rel="noopener noreferrer" target="_blank"><i class="fab fa-github"></i> Code</a>
-                                <a href="S2/sae-204.html" class="more">Voir le projet <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="project-card reveal" data-semestre="S2" data-competence="3">
-                        <div class="project-content">
-                            <div class="project-top"><span class="project-code">SAÉ2.03</span><span class="project-sem">Semestre 2</span></div>
-                            <h3><a href="S2/sae-203.html">Mettre en place une solution informatique</a></h3>
-                            <span class="project-badge">Compétence 3 · Programmer</span>
-                            <p>Une application web Django reliée à une base de données, derrière un reverse proxy Nginx.</p>
-                            <div class="project-tech"><span>Python</span><span>Django</span><span>MariaDB</span><span>Nginx</span></div>
-                            <div class="project-links">
-                                <a href="https://github.com/Lucas-hrl/SAE2.03" rel="noopener noreferrer" target="_blank"><i class="fab fa-github"></i> Code</a>
-                                <a href="S2/sae-203.html" class="more">Voir le projet <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="project-card reveal" data-semestre="S2" data-competence="2">
-                        <div class="project-content">
-                            <div class="project-top"><span class="project-code">SAÉ2.02</span><span class="project-sem">Semestre 2</span></div>
-                            <h3><a href="S2/sae-202.html">Mesurer et caractériser un signal ou un système</a></h3>
-                            <span class="project-badge">Compétence 2 · Connecter</span>
-                            <p>Une web radio portable à base d'ESP32 et d'un convertisseur numérique-analogique.</p>
-                            <div class="project-tech"><span>ESP32</span><span>FFT</span><span>MQTT</span></div>
-                            <div class="project-links">
-                                <a href="S2/sae-202.html" class="more">Voir le projet <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="project-card reveal" data-semestre="S2" data-competence="1">
-                        <div class="project-content">
-                            <div class="project-top"><span class="project-code">SAÉ2.01</span><span class="project-sem">Semestre 2</span></div>
-                            <h3><a href="S2/sae-201.html">Construire un réseau</a></h3>
-                            <span class="project-badge">Compétence 1 · Administrer</span>
-                            <p>Un petit réseau monté de A à Z : plan d'adressage, VLAN, routage et ACL.</p>
-                            <div class="project-tech"><span>VLAN</span><span>ACL</span><span>Debian</span><span>GNS3</span></div>
-                            <div class="project-links">
-                                <a href="https://github.com/DrKNath/SAE2.01" rel="noopener noreferrer" target="_blank"><i class="fab fa-github"></i> Code</a>
-                                <a href="S2/sae-201.html" class="more">Voir le projet <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- ===== Semestre 1 ===== -->
-                    <article class="project-card reveal" data-semestre="S1" data-competence="3">
-                        <div class="project-content">
-                            <div class="project-top"><span class="project-code">SAÉ1.05</span><span class="project-sem">Semestre 1</span></div>
-                            <h3><a href="S1/sae-105.html">Traiter des données</a></h3>
-                            <span class="project-badge">Compétence 3 · Programmer</span>
-                            <p>Un programme Python qui fouille un dossier ou un disque pour trouver les fichiers les plus lourds.</p>
-                            <div class="project-tech"><span>Python</span><span>PowerShell</span></div>
-                            <div class="project-links">
-                                <a href="https://github.com/DrKNath/SAE1.05" rel="noopener noreferrer" target="_blank"><i class="fab fa-github"></i> Code</a>
-                                <a href="S1/sae-105.html" class="more">Voir le projet <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="project-card reveal" data-semestre="S1" data-competence="3">
-                        <div class="project-content">
-                            <div class="project-top"><span class="project-code">SAÉ1.04</span><span class="project-sem">Semestre 1</span></div>
-                            <h3><a href="S1/sae-104.html">Se présenter sur Internet</a></h3>
-                            <span class="project-badge">Compétence 3 · Programmer</span>
-                            <p>Mon premier CV web, en HTML/CSS.</p>
-                            <div class="project-tech"><span>HTML</span><span>CSS</span></div>
-                            <div class="project-links">
-                                <a href="S1/sae-104.html" class="more">Voir le projet <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="project-card reveal" data-semestre="S1" data-competence="2">
-                        <div class="project-content">
-                            <div class="project-top"><span class="project-code">SAÉ1.03</span><span class="project-sem">Semestre 1</span></div>
-                            <h3><a href="S1/sae-103.html">Découvrir un dispositif de transmission</a></h3>
-                            <span class="project-badge">Compétence 2 · Connecter</span>
-                            <p>Analyse de la couverture Wi-Fi d'un bâtiment et réalisation d'une heat-map.</p>
-                            <div class="project-tech"><span>Wi-Fi</span><span>Contrôleur Wi-Fi</span></div>
-                            <div class="project-links">
-                                <a href="S1/sae-103.html" class="more">Voir le projet <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="project-card reveal" data-semestre="S1" data-competence="1">
-                        <div class="project-content">
-                            <div class="project-top"><span class="project-code">SAÉ1.02</span><span class="project-sem">Semestre 1</span></div>
-                            <h3><a href="S1/sae-102.html">S'initier aux réseaux informatiques</a></h3>
-                            <span class="project-badge">Compétence 1 · Administrer</span>
-                            <p>Le réseau d'une entreprise avec plusieurs succursales et un service DHCP.</p>
-                            <div class="project-tech"><span>Debian</span><span>DHCP</span><span>Routeur</span><span>Switch</span><span>EVE-NG</span></div>
-                            <div class="project-links">
-                                <a href="S1/sae-102.html" class="more">Voir le projet <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="project-card reveal" data-semestre="S1" data-competence="1">
-                        <div class="project-content">
-                            <div class="project-top"><span class="project-code">SAÉ1.01</span><span class="project-sem">Semestre 1</span></div>
-                            <h3><a href="S1/sae-101.html">Hygiène informatique et cybersécurité</a></h3>
-                            <span class="project-badge">Compétence 1 · Administrer</span>
-                            <p>Présentation d'une technologie d'Internet, de ses avantages et de ses risques.</p>
-                            <div class="project-tech"><span>Cybersécurité</span><span>Veille</span></div>
-                            <div class="project-links">
-                                <a href="S1/sae-101.html" class="more">Voir le projet <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </article>
-
-                </div>
+                <!-- Les projets viennent de data/projets.js : c'est là qu'on ajoute une SAÉ. -->
+                <div class="projects-grid" id="sae-grid" data-projects="sae" data-layout="cards"></div>
+                <noscript><p>Active JavaScript pour voir la liste des projets.</p></noscript>
             </div>
         </section>
 
@@ -375,35 +223,8 @@
                     <p class="section-intro">Ce que je fais en dehors des cours, pour le plaisir et pour apprendre.</p>
                 </div>
 
-                <div class="projects-grid">
-                    <article class="project-card reveal" data-competence="4">
-                        <div class="project-content">
-                            <div class="project-top"><span class="project-code">perso/proxmox</span><span class="project-sem">En cours</span></div>
-                            <h3><a href="perso/proxmox.html">Cluster Proxmox &amp; auto-hébergement</a></h3>
-                            <span class="project-badge">Homelab</span>
-                            <p>Un cluster Proxmox VE de plusieurs nœuds, monté avec des vieux PC récupérés, plus un serveur TrueNAS. J'y héberge DNS, VPN, reverse proxy, domotique…</p>
-                            <div class="project-tech"><span>Proxmox VE</span><span>LXC</span><span>TrueNAS</span><span>Pi-hole</span><span>VPN</span></div>
-                            <div class="project-links">
-                                <a href="perso/proxmox.html" class="more">En savoir plus <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- ===== AUTRE PROJET PERSO : copie ce bloc pour en ajouter un =====
-                    <article class="project-card reveal" data-competence="3">
-                        <div class="project-content">
-                            <div class="project-top"><span class="project-code">perso/[nom]</span><span class="project-sem">Perso</span></div>
-                            <h3><a href="perso/[page].html">[Titre du projet]</a></h3>
-                            <span class="project-badge">[Catégorie]</span>
-                            <p>[Courte description]</p>
-                            <div class="project-tech"><span>[Outil 1]</span><span>[Outil 2]</span></div>
-                            <div class="project-links">
-                                <a href="perso/[page].html" class="more">En savoir plus <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </article>
-                    ================================================================= -->
-                </div>
+                <!-- Les projets perso viennent aussi de data/projets.js -->
+                <div class="projects-grid" data-projects="perso" data-layout="cards"></div>
             </div>
         </section>
 
@@ -505,6 +326,7 @@
 
     <button class="back-to-top" type="button" aria-label="Revenir en haut"><i class="fas fa-arrow-up"></i></button>
 
+    <script src="data/projets.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

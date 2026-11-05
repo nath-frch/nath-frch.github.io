@@ -1738,6 +1738,719 @@ a.contact-item:hover {
     }
 }
 
+/* ---------- Utilitaires communs ---------- */
+.is-hidden {
+    display: none !important;
+}
+
+/* Photo (si img/moi.jpg n'existe pas, le texte de remplacement s'affiche) */
+.photo {
+    position: relative;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    background:
+        repeating-linear-gradient(135deg, transparent 0 10px, color-mix(in srgb, var(--p3) 14%, transparent) 10px 20px),
+        var(--surface-2);
+    color: var(--muted);
+    font-family: var(--hand);
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+.photo img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ---------- Design 1 « Carnet » : polaroid + post-it ---------- */
+.hero-side {
+    position: relative;
+    padding-top: 1rem;
+}
+
+.polaroid {
+    position: relative;
+    z-index: 2;
+    width: 190px;
+    margin: 0 0 -46px auto;
+    padding: 10px 10px 0;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: var(--shadow-hover);
+    transform: rotate(-4deg);
+}
+
+.polaroid .photo {
+    aspect-ratio: 1;
+    color: #8a8a8a;
+    background:
+        repeating-linear-gradient(135deg, transparent 0 10px, rgba(0, 0, 0, 0.04) 10px 20px),
+        #efefef;
+}
+
+.polaroid figcaption {
+    padding: 0.35rem 0 0.5rem;
+    text-align: center;
+    font-family: var(--hand);
+    font-size: 1.25rem;
+    color: #444;
+}
+
+.alt-path em {
+    display: block;
+    margin-top: 0.3rem;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.9rem;
+    color: var(--muted);
+}
+
+/* =========================================================
+   Lignes de projets regroupées par semestre (designs 2 et 3)
+   ========================================================= */
+.sem-group {
+    display: grid;
+    grid-template-columns: 170px 1fr;
+    gap: 1.5rem;
+    padding: 1.6rem 0;
+    border-top: 1px solid var(--border);
+}
+
+.sem-head {
+    position: sticky;
+    top: calc(var(--nav-h) + 16px);
+    align-self: start;
+}
+
+.sem-num {
+    display: block;
+    font-family: var(--display);
+    font-size: 2.6rem;
+    font-weight: 800;
+    line-height: 1;
+    color: var(--accent);
+}
+
+.sem-year {
+    display: block;
+    margin-top: 0.35rem;
+    font-size: 0.82rem;
+    color: var(--muted);
+}
+
+.sem-items {
+    display: grid;
+    gap: 0.75rem;
+}
+
+.project-row {
+    --c: var(--accent);
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.5rem 1.5rem;
+    align-items: start;
+    padding: 1.1rem 1.25rem;
+    border-radius: var(--radius);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-row[data-competence="1"] { --c: var(--c1); }
+.project-row[data-competence="2"] { --c: var(--c2); }
+.project-row[data-competence="3"] { --c: var(--c3); }
+.project-row[data-competence="4"] { --c: var(--c4); }
+.project-row[data-competence="5"] { --c: var(--c5); }
+
+.project-row:hover {
+    border-color: var(--c);
+    box-shadow: var(--shadow);
+}
+
+.row-dot {
+    display: none;
+}
+
+.row-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem 1rem;
+    margin-bottom: 0.3rem;
+}
+
+.row-meta .project-badge {
+    margin: 0;
+}
+
+.project-row h3 {
+    font-size: 1.12rem;
+    line-height: 1.3;
+    margin-bottom: 0.3rem;
+}
+
+.project-row h3 a {
+    color: var(--text);
+    text-decoration: none;
+}
+
+.project-row h3 a::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+}
+
+.project-row p {
+    color: var(--muted);
+    font-size: 0.94rem;
+    margin-bottom: 0.6rem;
+}
+
+.project-row .project-tech {
+    margin-bottom: 0;
+}
+
+.project-row .project-links {
+    margin: 0;
+    padding: 0;
+    border: none;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.5rem;
+    white-space: nowrap;
+}
+
+.project-row .project-links .more {
+    margin-left: 0;
+}
+
+/* =========================================================
+   Design 2 « Profil » : barre latérale fixe avec photo
+   ========================================================= */
+.d-profil {
+    --side: 300px;
+}
+
+.side {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: var(--side);
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+    padding: 2rem 1.8rem;
+    background: var(--bg-alt);
+    border-right: 1px solid var(--border);
+    overflow-y: auto;
+    z-index: 900;
+}
+
+.side .photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid var(--surface);
+    box-shadow: 0 0 0 2px var(--accent);
+    font-size: 1rem;
+}
+
+.side-name {
+    font-family: var(--display);
+    font-size: 1.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+}
+
+.side-role {
+    margin-top: 0.3rem;
+    color: var(--muted);
+    font-size: 0.92rem;
+}
+
+.side-nav {
+    list-style: none;
+    display: grid;
+    gap: 0.1rem;
+    counter-reset: nav;
+}
+
+.side-nav a {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    padding: 0.45rem 0.6rem;
+    border-radius: 8px;
+    color: var(--muted);
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.side-nav a::before {
+    counter-increment: nav;
+    content: counter(nav, decimal-leading-zero);
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    opacity: 0.7;
+}
+
+.side-nav a:hover {
+    color: var(--text);
+}
+
+.side-nav a.active {
+    color: var(--text);
+    background: var(--accent-soft);
+}
+
+.side-nav a.active::before {
+    color: var(--accent);
+    opacity: 1;
+}
+
+.side-foot {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.side-foot a {
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    color: var(--text);
+    text-decoration: none;
+}
+
+.side-foot a:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.side-foot .theme-toggle {
+    margin-left: auto;
+}
+
+.d-profil .page {
+    margin-left: var(--side);
+}
+
+.d-profil .page section {
+    padding: 72px 0;
+}
+
+.d-profil .container {
+    max-width: 900px;
+    padding: 0 48px;
+}
+
+.intro-big {
+    font-family: var(--display);
+    font-size: clamp(1.8rem, 3.6vw, 2.7rem);
+    line-height: 1.2;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    max-width: 760px;
+}
+
+.intro-big .soft {
+    color: var(--muted);
+}
+
+.d-profil #accueil {
+    padding-top: 96px;
+}
+
+.d-profil .intro-sub {
+    margin-top: 1.4rem;
+    max-width: 640px;
+    color: var(--muted);
+    font-size: 1.08rem;
+}
+
+/* =========================================================
+   Design 3 « Badge » : carte d'accès + ligne de métro
+   ========================================================= */
+.badge-hero {
+    padding: calc(var(--nav-h) + 56px) 0 72px;
+}
+
+.badge-hero .container {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 4.5rem;
+    align-items: center;
+}
+
+.badge-wrap {
+    position: relative;
+    padding-top: 70px;
+}
+
+/* Cordon */
+.badge-wrap::before {
+    content: '';
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    width: 26px;
+    height: 120px;
+    transform: translateX(-50%);
+    background: repeating-linear-gradient(180deg, var(--accent) 0 14px, color-mix(in srgb, var(--accent) 70%, #000) 14px 16px);
+    border-radius: 3px;
+}
+
+.badge-card {
+    position: relative;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    box-shadow: var(--shadow-hover);
+    overflow: hidden;
+    transform: rotate(-2deg);
+    transition: transform 0.4s ease;
+}
+
+.badge-card:hover {
+    transform: rotate(0deg);
+}
+
+/* Trou du badge */
+.badge-card::before {
+    content: '';
+    position: absolute;
+    top: 14px;
+    left: 50%;
+    width: 54px;
+    height: 10px;
+    transform: translateX(-50%);
+    border-radius: 6px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+}
+
+.badge-top {
+    padding: 2.4rem 1.6rem 1rem;
+    background: var(--accent);
+    color: var(--on-accent);
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+}
+
+.badge-body {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 1.1rem;
+    padding: 1.4rem 1.6rem;
+}
+
+.badge-body .photo {
+    width: 110px;
+    height: 136px;
+    border-radius: 10px;
+    font-size: 1rem;
+}
+
+.badge-name {
+    font-family: var(--display);
+    font-size: 1.35rem;
+    font-weight: 800;
+    line-height: 1.1;
+}
+
+.badge-role {
+    margin-top: 0.4rem;
+    font-size: 0.85rem;
+    color: var(--muted);
+}
+
+.badge-access {
+    margin-top: 0.7rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+}
+
+.badge-access span {
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.1rem 0.45rem;
+    border-radius: 4px;
+    background: var(--accent-soft);
+    color: var(--accent);
+}
+
+.badge-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.9rem 1.6rem 1.2rem;
+    border-top: 1px dashed var(--border);
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--muted);
+}
+
+.barcode {
+    width: 120px;
+    height: 30px;
+    background: repeating-linear-gradient(90deg,
+        var(--text) 0 2px, transparent 2px 4px, var(--text) 4px 5px, transparent 5px 8px,
+        var(--text) 8px 11px, transparent 11px 12px, var(--text) 12px 13px, transparent 13px 16px);
+    opacity: 0.85;
+}
+
+.badge-intro h1 {
+    font-size: clamp(2.3rem, 5vw, 3.8rem);
+    line-height: 1.05;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.2rem;
+}
+
+.badge-intro p {
+    color: var(--muted);
+    font-size: 1.12rem;
+    max-width: 560px;
+    margin-bottom: 1.6rem;
+}
+
+/* Fiche de poste */
+.job-sheet {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    background: var(--surface);
+    overflow: hidden;
+}
+
+.job-sheet > div {
+    padding: 1.6rem;
+    border-right: 1px solid var(--border);
+}
+
+.job-sheet > div:last-child {
+    border-right: none;
+}
+
+.job-sheet .step {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.job-sheet h3 {
+    font-size: 1.12rem;
+    margin: 0.35rem 0 0.5rem;
+}
+
+.job-sheet p,
+.job-sheet li {
+    color: var(--muted);
+    font-size: 0.93rem;
+}
+
+.job-sheet ul {
+    padding-left: 1.1rem;
+}
+
+/* Ligne de métro : les semestres sont des "stations" */
+.metro .sem-group {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+    padding: 0 0 2rem 2.6rem;
+    border-top: none;
+    position: relative;
+}
+
+.metro .sem-group::before {
+    content: '';
+    position: absolute;
+    left: 11px;
+    top: 0;
+    bottom: 0;
+    width: 6px;
+    border-radius: 3px;
+    background: var(--accent);
+    opacity: 0.85;
+}
+
+.metro .sem-group:last-child::before {
+    bottom: auto;
+    height: 40px;
+}
+
+.metro .sem-head {
+    position: relative;
+    top: auto;
+    display: flex;
+    align-items: baseline;
+    gap: 0.8rem;
+}
+
+.metro .sem-head::before {
+    content: '';
+    position: absolute;
+    left: calc(-2.6rem + 3px);
+    top: 0.45rem;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 5px solid var(--accent);
+}
+
+.metro .sem-num {
+    font-size: 1.6rem;
+}
+
+.metro .project-row {
+    border-left: 4px solid var(--c);
+}
+
+/* ---------- Responsive des designs 2 et 3 ---------- */
+@media (max-width: 1000px) {
+    .side {
+        position: static;
+        width: auto;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+        display: grid;
+        grid-template-columns: auto 1fr;
+        align-items: center;
+        gap: 1rem 1.2rem;
+        padding: 1.4rem 16px;
+    }
+
+    .side .photo {
+        width: 76px;
+        height: 76px;
+    }
+
+    .side-nav {
+        grid-column: 1 / -1;
+        display: flex;
+        overflow-x: auto;
+        gap: 0.2rem;
+    }
+
+    .side-nav a {
+        white-space: nowrap;
+    }
+
+    .side-foot {
+        grid-column: 1 / -1;
+        margin-top: 0;
+    }
+
+    .d-profil .page {
+        margin-left: 0;
+    }
+
+    .d-profil .container {
+        padding: 0 16px;
+    }
+
+    .d-profil #accueil {
+        padding-top: 48px;
+    }
+
+    .badge-hero .container {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .badge-wrap {
+        max-width: 340px;
+    }
+
+    .job-sheet {
+        grid-template-columns: 1fr;
+    }
+
+    .job-sheet > div {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+    }
+}
+
+@media (max-width: 600px) {
+    .sem-group {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+
+    .sem-head {
+        position: static;
+        display: flex;
+        align-items: baseline;
+        gap: 0.8rem;
+    }
+
+    .project-row {
+        grid-template-columns: 1fr;
+    }
+
+    .project-row .project-links {
+        flex-direction: row;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+    }
+
+    .polaroid {
+        width: 150px;
+    }
+
+    .badge-body {
+        grid-template-columns: 90px 1fr;
+    }
+
+    .badge-body .photo {
+        width: 90px;
+        height: 112px;
+    }
+}
+
+/* Choix du design dans le sélecteur de test */
+.palette-picker .pp-design {
+    display: grid;
+    place-items: center;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-size: 0.75rem;
+}
+
+.palette-picker .pp-design.current {
+    background: var(--text);
+    color: var(--bg);
+    border-color: var(--text);
+}
+
 /* =========================================================
    PALETTES
    p0 = la plus foncée … p4 = la plus claire, p5 = 6ᵉ teinte
