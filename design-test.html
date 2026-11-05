@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test des palettes — Nathanaël Friedrich</title>
+    <meta name="robots" content="noindex">
+    <link rel="icon" type="image/png" href="img/icon.png">
+    <script>(function(d){d.classList.add('js');try{var t=localStorage.getItem('theme');if(t)d.setAttribute('data-theme',t);sessionStorage.removeItem('palette')}catch(e){}})(document.documentElement);</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Styles propres à cette page de test (à supprimer avec elle) */
+        .dt-wrap { padding: calc(var(--nav-h) + 48px) 0 64px; }
+        .dt-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; margin-top: 2.5rem; }
+        .dt-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; display: flex; flex-direction: column; }
+        .dt-preview { position: relative; height: 190px; padding: 1.2rem 1.3rem; background:
+            radial-gradient(ellipse 35% 60% at 0% 55%, color-mix(in srgb, var(--pv-g2) 55%, transparent), transparent 70%),
+            radial-gradient(ellipse 35% 60% at 100% 40%, color-mix(in srgb, var(--pv-g1) 55%, transparent), transparent 70%),
+            var(--pv-bg); color: #fff; overflow: hidden; }
+        .dt-pill { display: inline-flex; align-items: center; gap: .4rem; font-size: .7rem; padding: .2rem .6rem; border-radius: 999px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15); }
+        .dt-pill i { width: 6px; height: 6px; border-radius: 50%; background: #22c55e; }
+        .dt-title { margin-top: .8rem; font-weight: 800; font-size: 1.25rem; line-height: 1.15; letter-spacing: -.02em; }
+        .dt-title b { background: linear-gradient(90deg, var(--pv-a), var(--pv-l) 50%, var(--pv-g1)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+        .dt-btns { display: flex; gap: .5rem; margin-top: 1rem; font-size: .72rem; font-weight: 600; }
+        .dt-b1 { background: #fff; color: var(--pv-bg); padding: .35rem .8rem; border-radius: 999px; }
+        .dt-b2 { border: 1px solid rgba(255,255,255,.3); padding: .35rem .8rem; border-radius: 999px; }
+        .dt-swatches { display: grid; grid-template-columns: repeat(6, 1fr); height: 46px; }
+        .dt-swatches span { position: relative; }
+        .dt-swatches em { position: absolute; bottom: 3px; left: 0; right: 0; text-align: center; font: 600 .55rem var(--mono); font-style: normal; color: #fff; mix-blend-mode: difference; opacity: .8; }
+        .dt-body { padding: 1.3rem 1.4rem 1.5rem; display: flex; flex-direction: column; gap: .6rem; flex: 1; }
+        .dt-body h3 { font-size: 1.1rem; }
+        .dt-body p { color: var(--muted); font-size: .92rem; flex: 1; }
+        .dt-body .btn { align-self: flex-start; }
+        .dt-steps { display: grid; gap: .5rem; margin-top: 1.2rem; color: var(--muted); padding-left: 1.2rem; }
+    </style>
+</head>
+<body>
+    <nav class="navbar" aria-label="Navigation principale">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-mark">NF</span>
+                <span class="logo-text">Nathanaël Friedrich</span>
+            </a>
+            <div class="nav-actions">
+                <button class="theme-toggle" type="button" aria-label="Changer de thème (clair / sombre)">
+                    <i class="fas fa-moon"></i><i class="fas fa-sun"></i>
+                </button>
+                <a href="index.html" class="nav-cta"><i class="fas fa-arrow-left"></i><span>Retour au site</span></a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="dt-wrap">
+        <div class="container">
+            <div class="section-head">
+                <span class="section-eyebrow">// page de test — à supprimer une fois le choix fait</span>
+                <h1 class="section-title">Choisis la palette du portfolio</h1>
+                <p class="section-intro">Chaque palette s'applique à tout le site (accueil et pages projets), en mode clair et en mode sombre.</p>
+                <ol class="dt-steps">
+                    <li>Clique sur <strong>« Tester ce design »</strong> pour ouvrir le site avec cette palette.</li>
+                    <li>Le bouton <i class="fas fa-moon"></i> / <i class="fas fa-sun"></i> en haut bascule entre clair et sombre.</li>
+                    <li>La pastille en bas de l'écran permet de changer de palette sans revenir ici.</li>
+                </ol>
+            </div>
+            <div class="dt-grid">
+            <article class="dt-card">
+                <div class="dt-preview" style="--pv-bg:#0b1222;--pv-g1:#5b8cff;--pv-g2:#a78bfa;--pv-a:#7c3aed;--pv-l:#e6ebf4">
+                    <div class="dt-pill"><i></i> En alternance</div>
+                    <div class="dt-title">Nathanaël Friedrich<br><b>Réseaux &amp; systèmes</b></div>
+                    <div class="dt-btns"><span class="dt-b1">Voir mes projets</span><span class="dt-b2">Contact</span></div>
+                </div>
+                <div class="dt-swatches"><span style="background:#0b1222" title="#0b1222"><em>#0b1222</em></span><span style="background:#1d4ed8" title="#1d4ed8"><em>#1d4ed8</em></span><span style="background:#2563eb" title="#2563eb"><em>#2563eb</em></span><span style="background:#7c3aed" title="#7c3aed"><em>#7c3aed</em></span><span style="background:#e6ebf4" title="#e6ebf4"><em>#e6ebf4</em></span><span style="background:#ea580c" title="#ea580c"><em>#ea580c</em></span></div>
+                <div class="dt-body">
+                    <h3>Actuelle (bleu)</h3>
+                    <p>La version que je t'ai proposée au départ : bleu, violet et orange.</p>
+                    <a class="btn btn-primary btn-small" href="index.html?palette=defaut"><i class="fas fa-eye"></i> Tester ce design</a>
+                </div>
+            </article>
+            <article class="dt-card">
+                <div class="dt-preview" style="--pv-bg:#0E0B1D;--pv-g1:#B26BFF;--pv-g2:#7C5CFF;--pv-a:#8B7CC7;--pv-l:#C9C2E3">
+                    <div class="dt-pill"><i></i> En alternance</div>
+                    <div class="dt-title">Nathanaël Friedrich<br><b>Réseaux &amp; systèmes</b></div>
+                    <div class="dt-btns"><span class="dt-b1">Voir mes projets</span><span class="dt-b2">Contact</span></div>
+                </div>
+                <div class="dt-swatches"><span style="background:#0E0B1D" title="#0E0B1D"><em>#0E0B1D</em></span><span style="background:#2A1E4D" title="#2A1E4D"><em>#2A1E4D</em></span><span style="background:#5A3B8C" title="#5A3B8C"><em>#5A3B8C</em></span><span style="background:#8B7CC7" title="#8B7CC7"><em>#8B7CC7</em></span><span style="background:#C9C2E3" title="#C9C2E3"><em>#C9C2E3</em></span><span style="background:#3A3A52" title="#3A3A52"><em>#3A3A52</em></span></div>
+                <div class="dt-body">
+                    <h3>Violet nuit</h3>
+                    <p>Palette 1 de tes captures : violets profonds et lavande.</p>
+                    <a class="btn btn-primary btn-small" href="index.html?palette=violet"><i class="fas fa-eye"></i> Tester ce design</a>
+                </div>
+            </article>
+            <article class="dt-card">
+                <div class="dt-preview" style="--pv-bg:#1A120E;--pv-g1:#E8955A;--pv-g2:#B5703A;--pv-a:#A88462;--pv-l:#D5C4AE">
+                    <div class="dt-pill"><i></i> En alternance</div>
+                    <div class="dt-title">Nathanaël Friedrich<br><b>Réseaux &amp; systèmes</b></div>
+                    <div class="dt-btns"><span class="dt-b1">Voir mes projets</span><span class="dt-b2">Contact</span></div>
+                </div>
+                <div class="dt-swatches"><span style="background:#1A120E" title="#1A120E"><em>#1A120E</em></span><span style="background:#3A2418" title="#3A2418"><em>#3A2418</em></span><span style="background:#6B4A2E" title="#6B4A2E"><em>#6B4A2E</em></span><span style="background:#A88462" title="#A88462"><em>#A88462</em></span><span style="background:#D5C4AE" title="#D5C4AE"><em>#D5C4AE</em></span><span style="background:#4A4A46" title="#4A4A46"><em>#4A4A46</em></span></div>
+                <div class="dt-body">
+                    <h3>Caramel</h3>
+                    <p>Palette 2 : bruns chauds, sable et gris.</p>
+                    <a class="btn btn-primary btn-small" href="index.html?palette=caramel"><i class="fas fa-eye"></i> Tester ce design</a>
+                </div>
+            </article>
+            <article class="dt-card">
+                <div class="dt-preview" style="--pv-bg:#0F1F17;--pv-g1:#CDEB5A;--pv-g2:#7FA33A;--pv-a:#6B7F67;--pv-l:#C7CBB8">
+                    <div class="dt-pill"><i></i> En alternance</div>
+                    <div class="dt-title">Nathanaël Friedrich<br><b>Réseaux &amp; systèmes</b></div>
+                    <div class="dt-btns"><span class="dt-b1">Voir mes projets</span><span class="dt-b2">Contact</span></div>
+                </div>
+                <div class="dt-swatches"><span style="background:#0F1F17" title="#0F1F17"><em>#0F1F17</em></span><span style="background:#1E3A2E" title="#1E3A2E"><em>#1E3A2E</em></span><span style="background:#3E5A3F" title="#3E5A3F"><em>#3E5A3F</em></span><span style="background:#6B7F67" title="#6B7F67"><em>#6B7F67</em></span><span style="background:#C7CBB8" title="#C7CBB8"><em>#C7CBB8</em></span><span style="background:#3D4337" title="#3D4337"><em>#3D4337</em></span></div>
+                <div class="dt-body">
+                    <h3>Olive</h3>
+                    <p>Palette 3 : verts forêt et sauge, halo citron.</p>
+                    <a class="btn btn-primary btn-small" href="index.html?palette=olive"><i class="fas fa-eye"></i> Tester ce design</a>
+                </div>
+            </article>
+            <article class="dt-card">
+                <div class="dt-preview" style="--pv-bg:#121212;--pv-g1:#EC4899;--pv-g2:#22D3EE;--pv-a:#64748B;--pv-l:#F1F5F9">
+                    <div class="dt-pill"><i></i> En alternance</div>
+                    <div class="dt-title">Nathanaël Friedrich<br><b>Réseaux &amp; systèmes</b></div>
+                    <div class="dt-btns"><span class="dt-b1">Voir mes projets</span><span class="dt-b2">Contact</span></div>
+                </div>
+                <div class="dt-swatches"><span style="background:#121212" title="#121212"><em>#121212</em></span><span style="background:#1F2937" title="#1F2937"><em>#1F2937</em></span><span style="background:#334155" title="#334155"><em>#334155</em></span><span style="background:#64748B" title="#64748B"><em>#64748B</em></span><span style="background:#F1F5F9" title="#F1F5F9"><em>#F1F5F9</em></span><span style="background:#EC4899" title="#EC4899"><em>#EC4899</em></span></div>
+                <div class="dt-body">
+                    <h3>Ardoise &amp; rose</h3>
+                    <p>Palette 9 : gris ardoise avec un accent rose vif.</p>
+                    <a class="btn btn-primary btn-small" href="index.html?palette=slate"><i class="fas fa-eye"></i> Tester ce design</a>
+                </div>
+            </article>
+            <article class="dt-card">
+                <div class="dt-preview" style="--pv-bg:#1A1A1F;--pv-g1:#F4A62A;--pv-g2:#7C5CFF;--pv-a:#A678B9;--pv-l:#F0D9B5">
+                    <div class="dt-pill"><i></i> En alternance</div>
+                    <div class="dt-title">Nathanaël Friedrich<br><b>Réseaux &amp; systèmes</b></div>
+                    <div class="dt-btns"><span class="dt-b1">Voir mes projets</span><span class="dt-b2">Contact</span></div>
+                </div>
+                <div class="dt-swatches"><span style="background:#1A1A1F" title="#1A1A1F"><em>#1A1A1F</em></span><span style="background:#2D2B55" title="#2D2B55"><em>#2D2B55</em></span><span style="background:#6A5ACD" title="#6A5ACD"><em>#6A5ACD</em></span><span style="background:#A678B9" title="#A678B9"><em>#A678B9</em></span><span style="background:#F0D9B5" title="#F0D9B5"><em>#F0D9B5</em></span><span style="background:#F4A62A" title="#F4A62A"><em>#F4A62A</em></span></div>
+                <div class="dt-body">
+                    <h3>Indigo &amp; orange</h3>
+                    <p>Palette 8 : indigo et mauve, accent orange.</p>
+                    <a class="btn btn-primary btn-small" href="index.html?palette=ember"><i class="fas fa-eye"></i> Tester ce design</a>
+                </div>
+            </article>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

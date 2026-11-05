@@ -132,6 +132,47 @@ document.addEventListener('DOMContentLoaded', () => {
         revealEls.forEach(el => el.classList.add('in-view'));
     }
 
+    // --- Sélecteur de palette (uniquement en mode test : ?palette=...) ---
+    const PALETTES = [
+        { id: 'defaut', name: 'Actuelle', color: 'linear-gradient(135deg,#2563eb,#7c3aed)' },
+        { id: 'violet', name: 'Violet', color: 'linear-gradient(135deg,#2A1E4D,#8B7CC7)' },
+        { id: 'caramel', name: 'Caramel', color: 'linear-gradient(135deg,#3A2418,#A88462)' },
+        { id: 'olive', name: 'Olive', color: 'linear-gradient(135deg,#1E3A2E,#6B7F67)' },
+        { id: 'slate', name: 'Ardoise & rose', color: 'linear-gradient(135deg,#334155,#EC4899)' },
+        { id: 'ember', name: 'Indigo & orange', color: 'linear-gradient(135deg,#6A5ACD,#F4A62A)' }
+    ];
+    let testPalette = null;
+    try { testPalette = sessionStorage.getItem('palette'); } catch (e) { /* ignoré */ }
+
+    if (testPalette) {
+        const inSub = /\/(S\d|perso)\//.test(location.pathname);
+        const picker = document.createElement('div');
+        picker.className = 'palette-picker';
+        picker.setAttribute('role', 'group');
+        picker.setAttribute('aria-label', 'Palette de test');
+        picker.innerHTML = '<span class="pp-label">Palette :</span>';
+        PALETTES.forEach(p => {
+            const b = document.createElement('button');
+            b.type = 'button';
+            b.title = p.name;
+            b.setAttribute('aria-label', p.name);
+            b.style.setProperty('--sw', p.color);
+            b.setAttribute('aria-pressed', String(p.id === testPalette));
+            b.addEventListener('click', () => {
+                if (p.id === 'defaut') root.removeAttribute('data-palette');
+                else root.setAttribute('data-palette', p.id);
+                try { sessionStorage.setItem('palette', p.id); } catch (e) { /* ignoré */ }
+                picker.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+            });
+            picker.appendChild(b);
+        });
+        const back = document.createElement('a');
+        back.href = (inSub ? '../' : '') + 'design-test.html';
+        back.textContent = 'Comparer';
+        picker.appendChild(back);
+        document.body.appendChild(picker);
+    }
+
     // --- Année du pied de page ---
     document.querySelectorAll('.current-year').forEach(el => { el.textContent = new Date().getFullYear(); });
 
