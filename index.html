@@ -3,452 +3,577 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Nathanaël Friedrich | BUT R&T</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Nathanaël Friedrich — Portfolio BUT R&amp;T</title>
+    <meta name="description" content="Portfolio de Nathanaël Friedrich, étudiant en BUT Réseaux &amp; Télécommunications à Colmar, à la recherche d'une alternance en réseaux, systèmes et cybersécurité.">
+    <meta property="og:title" content="Nathanaël Friedrich — Portfolio BUT R&amp;T">
+    <meta property="og:description" content="Projets SAÉ, homelab Proxmox et recherche d'alternance en réseaux, systèmes et cybersécurité.">
+    <meta name="theme-color" content="#0b1222">
     <link rel="icon" type="image/png" href="img/icon.png">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}document.documentElement.classList.add('js');</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
+    <a class="skip-link" href="#apropos">Aller au contenu</a>
+    <div class="scroll-progress" aria-hidden="true"></div>
+
+    <!-- ===================== Navigation ===================== -->
+    <nav class="navbar on-hero" aria-label="Navigation principale">
         <div class="nav-container">
-            <div class="nav-logo">
-                <h2>Portfolio de Nathanaël Friedrich</h2>
-            </div>
-            <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="#accueil" class="nav-link">Accueil</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#apropos" class="nav-link">À propos</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#competences" class="nav-link">Compétences</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#SAE" class="nav-link">SAÉ</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#projet" class="nav-link">Projet Perso</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#contact" class="nav-link">Contact</a>
-                </li>
+            <a href="#accueil" class="nav-logo">
+                <span class="logo-mark">NF</span>
+                <span class="logo-text">Nathanaël Friedrich</span>
+            </a>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#apropos" class="nav-link">À propos</a></li>
+                <li><a href="#alternance" class="nav-link">Alternance</a></li>
+                <li><a href="#projets" class="nav-link">Projets</a></li>
+                <li><a href="#perso" class="nav-link">Homelab</a></li>
+                <li><a href="#competences" class="nav-link">Compétences</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
-            <div class="nav-toggle">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+            <div class="nav-actions">
+                <button class="theme-toggle" type="button" aria-label="Changer de thème (clair / sombre)">
+                    <i class="fas fa-moon"></i><i class="fas fa-sun"></i>
+                </button>
+                <a href="img/CV_FRIEDRICH.pdf" class="nav-cta" target="_blank" rel="noopener noreferrer">
+                    <i class="fas fa-file-arrow-down"></i><span>CV</span>
+                </a>
+                <button class="nav-toggle" type="button" aria-label="Ouvrir le menu" aria-controls="nav-menu" aria-expanded="false">
+                    <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+                </button>
             </div>
         </div>
     </nav>
 
-    <!-- Section Accueil -->
-    <section id="accueil" class="hero">
-        <div class="hero-content">
-            <h1 class="hero-title">Nathanaël Friedrich, étudiant en <span class="highlight">Réseaux &amp; Télécommunications</span></h1>
-            <p class="hero-subtitle">BUT R&amp;T 2ᵉ année à Colmar</p>
-            <div class="hero-buttons">
-                <a href="#SAE" class="btn btn-primary">Mes SAÉ</a>
-                <a href="#contact" class="btn btn-secondary">Me contacter</a>
+    <!-- ===================== Accueil ===================== -->
+    <header id="accueil" class="hero">
+        <div class="hero-glow" aria-hidden="true"></div>
+        <div class="container hero-inner">
+            <div class="hero-content">
+                <a href="#alternance" class="status-pill">
+                    <span class="status-dot"></span>
+                    Recherche une alternance — rentrée 2027
+                </a>
+                <h1 class="hero-title">Nathanaël Friedrich<br><span class="highlight">Réseaux, systèmes &amp; cybersécurité</span></h1>
+                <p class="hero-subtitle">Étudiant en 2ᵉ année de BUT Réseaux &amp; Télécommunications à Colmar. Je construis des réseaux, j'administre des serveurs Linux et je fais tourner mon propre homelab Proxmox.</p>
+                <div class="hero-buttons">
+                    <a href="#projets" class="btn btn-primary"><i class="fas fa-folder-open"></i> Voir mes projets</a>
+                    <a href="#contact" class="btn btn-secondary"><i class="fas fa-paper-plane"></i> Me contacter</a>
+                </div>
+                <div class="hero-socials">
+                    <a href="https://linkedin.com/in/nathanaël-friedrich-967161340" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/DrKNath" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="mailto:friedrich.nathanael@gmail.com" aria-label="E-mail"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+
+            <div class="hero-visual" aria-hidden="true">
+                <div class="terminal">
+                    <div class="terminal-bar"><span></span><span></span><span></span><em>nathanael@homelab: ~</em></div>
+                    <div class="terminal-body">
+                        <span class="prompt">~$</span> <span class="cmd">whoami</span>
+                        <span class="out">Nathanaël Friedrich — étudiant BUT R&amp;T (Colmar)</span>
+                        <span class="prompt">~$</span> <span class="cmd">cat stack.txt</span>
+                        <span class="out">Réseaux · Linux · Proxmox · Python · MQTT · Wireshark</span>
+                        <span class="prompt">~$</span> <span class="cmd">ls projets/ | wc -l</span>
+                        <span class="out">12</span>
+                        <span class="prompt">~$</span> <span class="cmd">systemctl status alternance</span>
+                        <span class="out"><span class="ok">● active (recherche)</span> — dispo sept. 2027</span>
+                        <span class="prompt">~$</span> <span class="cursor"></span>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="hero-image">
-            <div class="profile-img"></div>
-        </div>
-    </section>
+        <a href="#apropos" class="scroll-hint" aria-label="Descendre"><i class="fas fa-chevron-down"></i></a>
+    </header>
 
-    <!-- Section À propos -->
-    <section id="apropos" class="about">
-        <div class="container">
-            <h2 class="section-title">À propos de moi</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>Étudiant en deuxième année de BUT Réseaux et Télécommunications, je suis passionné par l'informatique. Mon parcours me permet d'acquérir des compétences solides en administration réseau, en connectivité, en développement d'applications et en cybersécurité.</p>
-                    <p>À travers mes projets SAÉ (Situations d'Apprentissage et d'Évaluation), je développe une expertise pratique dans les domaines clés des réseaux et télécommunications.</p>
+    <main>
+        <!-- ===================== À propos ===================== -->
+        <section id="apropos">
+            <div class="container about-grid">
+                <div class="about-text reveal">
+                    <span class="section-eyebrow">// à propos</span>
+                    <h2 class="section-title">Passionné d'informatique, orienté terrain</h2>
+                    <p class="section-intro">Étudiant en <strong>deuxième année de BUT Réseaux et Télécommunications</strong>, j'acquiers des compétences en administration réseau, connectivité, développement d'applications et cybersécurité.</p>
+                    <p>À travers mes SAÉ (Situations d'Apprentissage et d'Évaluation), je mets les mains dans des projets concrets : réseaux d'entreprise, objets connectés, applications client/serveur. En dehors des cours, je gère un <strong>cluster Proxmox</strong> à la maison pour tester librement ce que j'apprends.</p>
                     <div class="about-stats">
-                        <div class="stat">
-                            <h3>11</h3>
-                            <p>Projets SAÉ réalisés</p>
+                        <div class="stat"><h3>11</h3><p>SAÉ réalisées</p></div>
+                        <div class="stat"><h3>5</h3><p>Compétences R&amp;T</p></div>
+                        <div class="stat"><h3>1</h3><p>Homelab en prod</p></div>
+                    </div>
+                </div>
+
+                <div class="reveal">
+                    <!-- Parcours : modifie les années / intitulés si besoin -->
+                    <ol class="timeline">
+                        <li class="done">
+                            <span class="when">2025 — 2026</span>
+                            <h4>BUT R&amp;T — 1ʳᵉ année</h4>
+                            <p>IUT de Colmar · Bases réseaux, transmission, programmation (S1 &amp; S2).</p>
+                        </li>
+                        <li class="current">
+                            <span class="when">2026 — 2027</span>
+                            <h4>BUT R&amp;T — 2ᵉ année</h4>
+                            <p>Parcours cybersécurité · IoT, applications communicantes (S3 &amp; S4).</p>
+                        </li>
+                        <li>
+                            <span class="when">2027 — 2028</span>
+                            <h4>BUT R&amp;T — 3ᵉ année en alternance</h4>
+                            <p>Je recherche une entreprise pour m'accueillir. <a href="#alternance">En savoir plus →</a></p>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== Alternance ===================== -->
+        <section id="alternance" class="section-alt">
+            <div class="container">
+                <div class="section-head reveal">
+                    <span class="section-eyebrow">// alternance</span>
+                    <h2 class="section-title">Je recherche une alternance</h2>
+                    <p class="section-intro">Pour ma 3ᵉ année de BUT R&amp;T, je cherche une entreprise dans les réseaux, les systèmes ou la cybersécurité.</p>
+                </div>
+
+                <!-- ===== Infos alternance : adapte les valeurs ci-dessous à ta situation ===== -->
+                <div class="alt-card reveal">
+                    <div class="alt-main">
+                        <span class="alt-status"><span class="status-dot"></span> Disponible à partir de septembre 2027</span>
+                        <h3>Technicien réseaux &amp; systèmes / cybersécurité en alternance</h3>
+                        <p>Motivé et curieux, j'ai envie de mettre en pratique en entreprise ce que j'apprends à l'IUT et sur mon homelab : déployer, administrer, sécuriser et superviser des infrastructures.</p>
+                        <div class="alt-roles">
+                            <span>Administration réseaux</span>
+                            <span>Administration systèmes</span>
+                            <span>Cybersécurité / SOC</span>
+                            <span>Virtualisation</span>
+                            <span>Support infrastructure</span>
                         </div>
-                        <div class="stat">
-                            <h3>5</h3>
-                            <p>Compétences BUT R&amp;T</p>
+                        <div class="alt-actions">
+                            <a href="img/CV_FRIEDRICH.pdf" class="btn btn-primary" target="_blank" rel="noopener noreferrer"><i class="fas fa-file-arrow-down"></i> Télécharger mon CV</a>
+                            <a href="mailto:friedrich.nathanael@gmail.com?subject=Alternance%20BUT%20R%26T" class="btn btn-outline"><i class="fas fa-envelope"></i> Me proposer une alternance</a>
                         </div>
-                        <div class="stat">
-                            <h3>2ᵉ</h3>
-                            <p>Année BUT R&amp;T</p>
+                    </div>
+                    <div class="alt-side">
+                        <ul class="alt-facts">
+                            <li>
+                                <i class="fas fa-calendar-check"></i>
+                                <div><span class="label">Début</span><span class="value">Septembre 2027</span></div>
+                            </li>
+                            <li>
+                                <i class="fas fa-hourglass-half"></i>
+                                <div><span class="label">Durée</span><span class="value">1 an (3ᵉ année de BUT)</span></div>
+                            </li>
+                            <li>
+                                <i class="fas fa-arrows-rotate"></i>
+                                <div><span class="label">Rythme</span><span class="value">Alternance IUT / entreprise</span></div>
+                            </li>
+                            <li>
+                                <i class="fas fa-location-dot"></i>
+                                <div><span class="label">Zone</span><span class="value">Colmar, Sarreguemines &amp; Grand Est</span></div>
+                            </li>
+                            <li>
+                                <i class="fas fa-graduation-cap"></i>
+                                <div><span class="label">Formation</span><span class="value">BUT R&amp;T — IUT de Colmar</span></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="alt-bring">
+                    <div class="bring-item reveal">
+                        <i class="fas fa-network-wired"></i>
+                        <h4>Réseaux</h4>
+                        <p>VLAN, routage, ACL, DHCP, configuration de switchs et routeurs (GNS3, EVE-NG).</p>
+                    </div>
+                    <div class="bring-item reveal">
+                        <i class="fas fa-server"></i>
+                        <h4>Systèmes &amp; virtualisation</h4>
+                        <p>Linux, cluster Proxmox, conteneurs LXC, TrueNAS, reverse proxy, VPN.</p>
+                    </div>
+                    <div class="bring-item reveal">
+                        <i class="fas fa-code"></i>
+                        <h4>Scripts &amp; automatisation</h4>
+                        <p>Python, Bash, PowerShell, MQTT, applications client/serveur.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== Projets SAÉ (du plus récent au plus ancien) ===================== -->
+        <section id="projets">
+            <div class="container">
+                <div class="section-head reveal">
+                    <span class="section-eyebrow">// projets</span>
+                    <h2 class="section-title">Mes projets SAÉ</h2>
+                    <p class="section-intro">Du plus récent au plus ancien. Cliquez sur un projet pour voir le détail et les apprentissages critiques.</p>
+                </div>
+
+                <div class="filters" role="group" aria-label="Filtrer par semestre">
+                    <button class="filter-btn active" type="button" data-filter="all" aria-pressed="true">Tous</button>
+                    <button class="filter-btn" type="button" data-filter="S3" aria-pressed="false">Semestre 3</button>
+                    <button class="filter-btn" type="button" data-filter="S2" aria-pressed="false">Semestre 2</button>
+                    <button class="filter-btn" type="button" data-filter="S1" aria-pressed="false">Semestre 1</button>
+                </div>
+
+                <!-- Pour ajouter une SAÉ : copie une carte, place-la EN HAUT de la grille
+                     (les plus récentes en premier) et adapte data-semestre / data-competence. -->
+                <div class="projects-grid" id="sae-grid">
+
+                    <!-- ===== Semestre 3 ===== -->
+                    <article class="project-card reveal" data-semestre="S3" data-competence="3">
+                        <a class="project-cover" href="S3/sae-302.html" tabindex="-1" aria-hidden="true">
+                            <i class="fas fa-user-secret"></i><span class="project-sem">S3</span>
+                        </a>
+                        <div class="project-content">
+                            <div class="project-meta"><span class="project-badge">Compétence 3</span><span class="tag-new">Nouveau</span></div>
+                            <span class="project-code">SAÉ3.02</span>
+                            <h3><a href="S3/sae-302.html">Développer des applications communicantes</a></h3>
+                            <p>Application de messagerie anonyme basée sur le routage en oignon, avec une chaîne de routeurs virtuels.</p>
+                            <div class="project-tech"><span>Python</span><span>Client / serveur</span><span>Routage en oignon</span></div>
+                            <div class="project-links">
+                                <a href="S3/sae-302.html" class="btn btn-small">Voir le projet</a>
+                                <a href="https://github.com/DrKNath/SAE3.02" rel="noopener noreferrer" target="_blank" class="btn btn-outline"><i class="fab fa-github"></i> Code</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card reveal" data-semestre="S3" data-competence="2">
+                        <a class="project-cover" href="S3/sae-301.html" tabindex="-1" aria-hidden="true">
+                            <i class="fas fa-plug"></i><span class="project-sem">S3</span>
+                        </a>
+                        <div class="project-content">
+                            <div class="project-meta"><span class="project-badge">Compétence 2</span><span class="tag-new">Nouveau</span></div>
+                            <span class="project-code">SAÉ3.01</span>
+                            <h3><a href="S3/sae-301.html">Mettre en œuvre un système de transmission</a></h3>
+                            <p>Prise connectée pilotée depuis une interface web : architecture IoT bidirectionnelle ESP32 ↔ Raspberry Pi.</p>
+                            <div class="project-tech"><span>ESP32</span><span>Raspberry Pi</span><span>MQTT</span><span>Flask</span></div>
+                            <div class="project-links">
+                                <a href="S3/sae-301.html" class="btn btn-small">Voir le projet</a>
+                                <a href="https://github.com/DrKNath/SAE3.01" rel="noopener noreferrer" target="_blank" class="btn btn-outline"><i class="fab fa-github"></i> Code</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- ===== Semestre 2 ===== -->
+                    <article class="project-card reveal" data-semestre="S2" data-competence="1">
+                        <a class="project-cover" href="S2/sae-204.html" tabindex="-1" aria-hidden="true">
+                            <i class="fas fa-layer-group"></i><span class="project-sem">S2</span>
+                        </a>
+                        <div class="project-content">
+                            <div class="project-meta"><span class="project-badge">Compétences 1, 2 et 3</span></div>
+                            <span class="project-code">SAÉ2.04</span>
+                            <h3><a href="S2/sae-204.html">Projet intégratif</a></h3>
+                            <p>Réseau local complet, téléphonie sur IP, collecte de données sur un broker et affichage web.</p>
+                            <div class="project-tech"><span>Routage / commutation</span><span>ToIP</span><span>MQTT</span><span>Web</span></div>
+                            <div class="project-links">
+                                <a href="S2/sae-204.html" class="btn btn-small">Voir le projet</a>
+                                <a href="https://github.com/DrKNath/SAE2.04" rel="noopener noreferrer" target="_blank" class="btn btn-outline"><i class="fab fa-github"></i> Code</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card reveal" data-semestre="S2" data-competence="3">
+                        <a class="project-cover" href="S2/sae-203.html" tabindex="-1" aria-hidden="true">
+                            <i class="fas fa-database"></i><span class="project-sem">S2</span>
+                        </a>
+                        <div class="project-content">
+                            <div class="project-meta"><span class="project-badge">Compétence 3</span></div>
+                            <span class="project-code">SAÉ2.03</span>
+                            <h3><a href="S2/sae-203.html">Mettre en place une solution informatique</a></h3>
+                            <p>Application web Django reliée à une base de données relationnelle, derrière un reverse proxy Nginx.</p>
+                            <div class="project-tech"><span>Python</span><span>Django</span><span>MariaDB</span><span>Nginx</span></div>
+                            <div class="project-links">
+                                <a href="S2/sae-203.html" class="btn btn-small">Voir le projet</a>
+                                <a href="https://github.com/Lucas-hrl/SAE2.03" rel="noopener noreferrer" target="_blank" class="btn btn-outline"><i class="fab fa-github"></i> Code</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card reveal" data-semestre="S2" data-competence="2">
+                        <a class="project-cover" href="S2/sae-202.html" tabindex="-1" aria-hidden="true">
+                            <i class="fas fa-radio"></i><span class="project-sem">S2</span>
+                        </a>
+                        <div class="project-content">
+                            <div class="project-meta"><span class="project-badge">Compétence 2</span></div>
+                            <span class="project-code">SAÉ2.02</span>
+                            <h3><a href="S2/sae-202.html">Mesurer et caractériser un signal ou un système</a></h3>
+                            <p>Web radio portable à base d'ESP32 et d'un convertisseur numérique-analogique, pilotable en MQTT.</p>
+                            <div class="project-tech"><span>ESP32</span><span>FFT</span><span>MQTT</span></div>
+                            <div class="project-links">
+                                <a href="S2/sae-202.html" class="btn btn-small">Voir le projet</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card reveal" data-semestre="S2" data-competence="1">
+                        <a class="project-cover" href="S2/sae-201.html" tabindex="-1" aria-hidden="true">
+                            <i class="fas fa-diagram-project"></i><span class="project-sem">S2</span>
+                        </a>
+                        <div class="project-content">
+                            <div class="project-meta"><span class="project-badge">Compétence 1</span></div>
+                            <span class="project-code">SAÉ2.01</span>
+                            <h3><a href="S2/sae-201.html">Construire un réseau</a></h3>
+                            <p>Conception et configuration d'un réseau de petite taille : plan d'adressage, VLAN, routage et ACL.</p>
+                            <div class="project-tech"><span>Routeurs / switchs</span><span>VLAN</span><span>ACL</span><span>Debian</span><span>GNS3</span></div>
+                            <div class="project-links">
+                                <a href="S2/sae-201.html" class="btn btn-small">Voir le projet</a>
+                                <a href="https://github.com/DrKNath/SAE2.01" rel="noopener noreferrer" target="_blank" class="btn btn-outline"><i class="fab fa-github"></i> Code</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- ===== Semestre 1 ===== -->
+                    <article class="project-card reveal" data-semestre="S1" data-competence="3">
+                        <a class="project-cover" href="S1/sae-105.html" tabindex="-1" aria-hidden="true">
+                            <i class="fas fa-chart-pie"></i><span class="project-sem">S1</span>
+                        </a>
+                        <div class="project-content">
+                            <div class="project-meta"><span class="project-badge">Compétence 3</span></div>
+                            <span class="project-code">SAÉ1.05</span>
+                            <h3><a href="S1/sae-105.html">Traiter des données</a></h3>
+                            <p>Programme Python qui analyse un dossier ou un disque pour identifier les fichiers les plus volumineux.</p>
+                            <div class="project-tech"><span>Python</span><span>PowerShell</span></div>
+                            <div class="project-links">
+                                <a href="S1/sae-105.html" class="btn btn-small">Voir le projet</a>
+                                <a href="https://github.com/DrKNath/SAE1.05" rel="noopener noreferrer" target="_blank" class="btn btn-outline"><i class="fab fa-github"></i> Code</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card reveal" data-semestre="S1" data-competence="3">
+                        <a class="project-cover" href="S1/sae-104.html" tabindex="-1" aria-hidden="true">
+                            <i class="fas fa-id-card"></i><span class="project-sem">S1</span>
+                        </a>
+                        <div class="project-content">
+                            <div class="project-meta"><span class="project-badge">Compétence 3</span></div>
+                            <span class="project-code">SAÉ1.04</span>
+                            <h3><a href="S1/sae-104.html">Se présenter sur Internet</a></h3>
+                            <p>Création d'un CV web en HTML/CSS.</p>
+                            <div class="project-tech"><span>HTML</span><span>CSS</span></div>
+                            <div class="project-links">
+                                <a href="S1/sae-104.html" class="btn btn-small">Voir le projet</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card reveal" data-semestre="S1" data-competence="2">
+                        <a class="project-cover" href="S1/sae-103.html" tabindex="-1" aria-hidden="true">
+                            <i class="fas fa-wifi"></i><span class="project-sem">S1</span>
+                        </a>
+                        <div class="project-content">
+                            <div class="project-meta"><span class="project-badge">Compétence 2</span></div>
+                            <span class="project-code">SAÉ1.03</span>
+                            <h3><a href="S1/sae-103.html">Découvrir un dispositif de transmission</a></h3>
+                            <p>Analyse de la couverture Wi-Fi d'un bâtiment et réalisation d'une heat-map.</p>
+                            <div class="project-tech"><span>Wi-Fi</span><span>Contrôleur Wi-Fi</span><span>Réseau local</span></div>
+                            <div class="project-links">
+                                <a href="S1/sae-103.html" class="btn btn-small">Voir le projet</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card reveal" data-semestre="S1" data-competence="1">
+                        <a class="project-cover" href="S1/sae-102.html" tabindex="-1" aria-hidden="true">
+                            <i class="fas fa-network-wired"></i><span class="project-sem">S1</span>
+                        </a>
+                        <div class="project-content">
+                            <div class="project-meta"><span class="project-badge">Compétence 1</span></div>
+                            <span class="project-code">SAÉ1.02</span>
+                            <h3><a href="S1/sae-102.html">S'initier aux réseaux informatiques</a></h3>
+                            <p>Création et configuration d'un réseau d'entreprise avec plusieurs succursales et un service DHCP.</p>
+                            <div class="project-tech"><span>Debian</span><span>DHCP</span><span>Routeur</span><span>Switch</span><span>EVE-NG</span></div>
+                            <div class="project-links">
+                                <a href="S1/sae-102.html" class="btn btn-small">Voir le projet</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card reveal" data-semestre="S1" data-competence="1">
+                        <a class="project-cover" href="S1/sae-101.html" tabindex="-1" aria-hidden="true">
+                            <i class="fas fa-shield-halved"></i><span class="project-sem">S1</span>
+                        </a>
+                        <div class="project-content">
+                            <div class="project-meta"><span class="project-badge">Compétence 1</span></div>
+                            <span class="project-code">SAÉ1.01</span>
+                            <h3><a href="S1/sae-101.html">Hygiène informatique et cybersécurité</a></h3>
+                            <p>Présentation d'une technologie d'Internet, de ses avantages et de ses risques.</p>
+                            <div class="project-tech"><span>Cybersécurité</span><span>Veille technologique</span></div>
+                            <div class="project-links">
+                                <a href="S1/sae-101.html" class="btn btn-small">Voir le projet</a>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== Projets personnels ===================== -->
+        <section id="perso" class="section-alt">
+            <div class="container">
+                <div class="section-head reveal">
+                    <span class="section-eyebrow">// projets perso</span>
+                    <h2 class="section-title">Mon homelab &amp; projets personnels</h2>
+                    <p class="section-intro">En dehors des cours, j'expérimente sur mes propres projets : c'est là que je teste librement ce que j'apprends en réseaux, systèmes et auto-hébergement.</p>
+                </div>
+
+                <div class="projects-grid">
+                    <article class="project-card reveal" data-competence="4">
+                        <a class="project-cover" href="perso/proxmox.html" tabindex="-1" aria-hidden="true">
+                            <i class="fas fa-server"></i><span class="project-sem">Homelab</span>
+                        </a>
+                        <div class="project-content">
+                            <div class="project-meta"><span class="project-badge">En cours</span></div>
+                            <span class="project-code">perso/proxmox</span>
+                            <h3><a href="perso/proxmox.html">Cluster Proxmox &amp; auto-hébergement</a></h3>
+                            <p>Cluster Proxmox VE multi-nœuds sur du matériel de récupération, avec un serveur TrueNAS : VM, conteneurs LXC, DNS, VPN, reverse proxy, domotique…</p>
+                            <div class="project-tech"><span>Proxmox VE</span><span>LXC</span><span>TrueNAS</span><span>Pi-hole</span><span>VPN</span></div>
+                            <div class="project-links">
+                                <a href="perso/proxmox.html" class="btn btn-small">En savoir plus</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- ===== AUTRE PROJET PERSO : copie ce bloc pour en ajouter un =====
+                    <article class="project-card reveal" data-competence="3">
+                        <a class="project-cover" href="perso/[page].html" tabindex="-1" aria-hidden="true">
+                            <i class="fas fa-[icone]"></i><span class="project-sem">Perso</span>
+                        </a>
+                        <div class="project-content">
+                            <div class="project-meta"><span class="project-badge">Perso</span></div>
+                            <span class="project-code">perso/[nom]</span>
+                            <h3><a href="perso/[page].html">[Titre du projet]</a></h3>
+                            <p>[Courte description]</p>
+                            <div class="project-tech"><span>[Outil 1]</span><span>[Outil 2]</span></div>
+                            <div class="project-links">
+                                <a href="perso/[page].html" class="btn btn-small">En savoir plus</a>
+                            </div>
+                        </div>
+                    </article>
+                    ================================================================= -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== Compétences ===================== -->
+        <section id="competences">
+            <div class="container">
+                <div class="section-head reveal">
+                    <span class="section-eyebrow">// compétences</span>
+                    <h2 class="section-title">Les 5 compétences du BUT R&amp;T</h2>
+                    <p class="section-intro">Le référentiel du BUT Réseaux &amp; Télécommunications, parcours cybersécurité, et les outils que j'utilise pour chacune.</p>
+                </div>
+                <div class="skills-grid">
+                    <div class="skill-card competence-1 reveal">
+                        <div class="skill-head">
+                            <i class="fas fa-network-wired"></i>
+                            <div><span class="skill-num">Compétence 1</span><h3>Administrer les réseaux et l'Internet</h3></div>
+                        </div>
+                        <p>Configuration et maintenance des équipements réseau, sécurisation des infrastructures, gestion des services réseau.</p>
+                        <div class="skill-details">
+                            <span>Routeurs / switchs</span><span>Linux</span><span>VirtualBox</span><span>VMware</span><span>Proxmox</span><span>ESXi</span>
+                        </div>
+                    </div>
+                    <div class="skill-card competence-2 reveal">
+                        <div class="skill-head">
+                            <i class="fas fa-satellite-dish"></i>
+                            <div><span class="skill-num">Compétence 2</span><h3>Connecter les entreprises et les usagers</h3></div>
+                        </div>
+                        <p>Déploiement d'infrastructures de télécommunications, optimisation des connexions, intégration de solutions.</p>
+                        <div class="skill-details">
+                            <span>Fibre optique</span><span>Ethernet</span><span>Wi-Fi</span><span>4G/5G</span><span>IoT</span>
+                        </div>
+                    </div>
+                    <div class="skill-card competence-3 reveal">
+                        <div class="skill-head">
+                            <i class="fas fa-code"></i>
+                            <div><span class="skill-num">Compétence 3</span><h3>Créer des outils et applications pour les R&amp;T</h3></div>
+                        </div>
+                        <p>Développement d'applications de monitoring, automatisation des tâches réseau, création d'interfaces de gestion.</p>
+                        <div class="skill-details">
+                            <span>Python</span><span>Bash</span><span>PowerShell</span><span>SQL</span><span>HTML/CSS</span>
+                        </div>
+                    </div>
+                    <div class="skill-card competence-4 reveal">
+                        <div class="skill-head">
+                            <i class="fas fa-user-shield"></i>
+                            <div><span class="skill-num">Compétence 4 · Cyber</span><h3>Administrer un système d'information sécurisé</h3></div>
+                        </div>
+                        <p>Configuration et maintien des serveurs, protocoles de sécurité, gestion des droits d'accès et protection des données critiques.</p>
+                        <div class="skill-details">
+                            <span>Active Directory</span><span>Firewall / VPN</span><span>PKI</span><span>Sauvegarde / PRA</span><span>Audit</span>
+                        </div>
+                    </div>
+                    <div class="skill-card competence-5 reveal">
+                        <div class="skill-head">
+                            <i class="fas fa-eye"></i>
+                            <div><span class="skill-num">Compétence 5 · Cyber</span><h3>Surveiller un système d'information sécurisé</h3></div>
+                        </div>
+                        <p>Analyse des flux, détection d'anomalies et de tentatives d'intrusion, supervision et gestion des alertes de sécurité.</p>
+                        <div class="skill-details">
+                            <span>Zabbix / Nagios</span><span>Wireshark</span><span>Grafana</span><span>Logs</span><span>SIEM / SOC</span>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Section Compétences -->
-    <section id="competences" class="skills">
-        <div class="container">
-            <h2 class="section-title">Compétences BUT R&amp;T</h2>
-            <div class="skills-grid">
-                <div class="skill-card competence-1">
-                    <i class="fas fa-network-wired"></i>
-                    <h3>Administrer les réseaux et l'Internet</h3>
-                    <p>Configuration et maintenance des équipements réseau, sécurisation des infrastructures, gestion des services réseau.</p>
-                    <div class="skill-details">
-                        <span>Configuration routeur/switch</span>
-                        <span>Linux</span>
-                        <span>VirtualBox</span>
-                        <span>VMware</span>
-                        <span>Proxmox</span>
-                        <span>ESXi</span>
+        <!-- ===================== Contact ===================== -->
+        <section id="contact">
+            <div class="container">
+                <div class="contact-panel reveal">
+                    <div>
+                        <span class="section-eyebrow">// contact</span>
+                        <h2 class="section-title">Discutons de votre projet d'alternance</h2>
+                        <p class="section-intro">Une offre d'alternance, une question sur un projet ou simplement envie d'échanger ? Je réponds rapidement.</p>
                     </div>
-                </div>
-                <div class="skill-card competence-2">
-                    <i class="fas fa-satellite-dish"></i>
-                    <h3>Connecter les entreprises et les usagers</h3>
-                    <p>Déploiement d'infrastructures de télécommunications, optimisation des connexions, intégration de solutions.</p>
-                    <div class="skill-details">
-                        <span>Fibre optique</span>
-                        <span>Ethernet</span>
-                        <span>Wi-Fi</span>
-                        <span>4G/5G</span>
-                    </div>
-                </div>
-                <div class="skill-card competence-3">
-                    <i class="fas fa-code"></i>
-                    <h3>Créer des outils et applications informatiques pour les R&amp;T</h3>
-                    <p>Développement d'applications de monitoring, automatisation des tâches réseau, création d'interfaces de gestion.</p>
-                    <div class="skill-details">
-                        <span>Python</span>
-                        <span>Bash</span>
-                        <span>PowerShell</span>
-                        <span>SQL</span>
-                        <span>HTML/CSS</span>
-                    </div>
-                </div>
-                <div class="skill-card competence-4">
-                    <i class="fas fa-user-shield"></i>
-                    <h3>Administrer un système d'information sécurisé</h3>
-                    <p>Configuration et maintien des serveurs, déploiement de protocoles de sécurité, gestion des droits d'accès et protection des données critiques.</p>
-                    <div class="skill-details">
-                        <span>Active Directory</span>
-                        <span>Firewall/VPN</span>
-                        <span>Gestion des PKI</span>
-                        <span>Sauvegarde/PRA</span>
-                        <span>Audit de sécurité</span>
-                    </div>
-                </div>
-                <div class="skill-card competence-5">
-                    <i class="fas fa-eye"></i>
-                    <h3>Surveiller un système d'information sécurisé</h3>
-                    <p>Analyse en temps réel des flux de données, détection d'anomalies et de tentatives d'intrusion, pilotage des outils de supervision et gestion des alertes de sécurité.</p>
-                    <div class="skill-details">
-                        <span>Zabbix/Nagios</span>
-                        <span>Wireshark</span>
-                        <span>Grafana</span>
-                        <span>Analyse de logs</span>
-                        <span>SIEM/SOC</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section Projets -->
-    <section id="SAE" class="projects">
-        <div class="container">
-            <h2 class="section-title">Mes Projets SAÉ</h2>
-            <div class="projects-grid">
-                <div class="project-card" data-competence="1">
-                    <div class="project-image admin-network"></div>
-                    <div class="project-content">
-                        <div class="project-badge">Compétence 1</div>
-                        <h3>SAÉ1.01 - Sensibilisation à l'hygiène informatique et à la cybersécurité</h3>
-                        <p>Réaliser une présentation sur un sujet informatique en exposant ses avantages et ses risques.</p>
-                        <div class="project-tech">
-                            <span>Découverte de nouvelles technologies</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="S1/sae-101.html" class="btn btn-small">Voir le projet</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card" data-competence="1">
-                    <div class="project-image admin-network"></div>
-                    <div class="project-content">
-                        <div class="project-badge">Compétence 1</div>
-                        <h3>SAÉ1.02 - S'initier aux réseaux informatiques</h3>
-                        <p>Création et configuration d'un réseau d'entreprise avec plusieurs succursales.</p>
-                        <div class="project-tech">
-                            <span>Debian Server</span>
-                            <span>DHCP</span>
-                            <span>Routeur</span>
-                            <span>Switch</span>
-                            <span>EVE-NG</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="S1/sae-102.html" class="btn btn-small">Voir le projet</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card" data-competence="2">
-                    <div class="project-image connect-users"></div>
-                    <div class="project-content">
-                        <div class="project-badge">Compétence 2</div>
-                          <h3>SAÉ1.03 - Découvrir un dispositif de transmission</h3>
-                          <p>Découverte d'une configuration Wi-Fi et réalisation d'une heat-map.</p>
-                          <div class="project-tech">
-                              <span>Wi-Fi</span>
-                              <span>Réseau local</span>
-                              <span>Contrôleur Wi-Fi</span>
-                          </div>
-                          <div class="project-links">
-                            <a href="S1/sae-103.html" class="btn btn-small">Voir le projet</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card" data-competence="3">
-                    <div class="project-image dev-apps"></div>
-                    <div class="project-content">
-                        <div class="project-badge">Compétence 3</div>
-                        <h3>SAÉ1.04 - Se présenter sur Internet</h3>
-                        <p>Création d'un CV web en HTML/CSS.</p>
-                        <div class="project-tech">
-                            <span>HTML/CSS</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="S1/sae-104.html" class="btn btn-small">Voir le projet</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card" data-competence="3">
-                    <div class="project-image dev-apps"></div>
-                    <div class="project-content">
-                        <div class="project-badge">Compétence 3</div>
-                        <h3>SAÉ1.05 - Traiter des données</h3>
-                        <p>Développement d'un programme Python qui analyse un dossier ou un disque entier afin d'identifier les fichiers les plus volumineux.</p>
-                        <div class="project-tech">
-                            <span>Python</span>
-                            <span>PowerShell</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="S1/sae-105.html" class="btn btn-small">Voir le projet</a>
-                            <a href="https://github.com/DrKNath/SAE1.05" rel="noopener noreferrer" target="_blank" class="btn btn-outline">Code source</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card" data-competence="1">
-                    <div class="project-image admin-network"></div>
-                    <div class="project-content">
-                        <div class="project-badge">Compétence 1</div>
-                        <h3>SAÉ2.01 - Construire un réseau</h3>
-                        <p>Création et configuration d'un réseau de petite taille.</p>
-                        <div class="project-tech">
-                            <span>Configuration routeur/switch</span>
-                            <span>Debian Server</span>
-                            <span>Debian Client</span>
-                            <span>ACL</span>
-                            <span>GNS3</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="S2/sae-201.html" class="btn btn-small">Voir le projet</a>
-                            <a href="https://github.com/DrKNath/SAE2.01" rel="noopener noreferrer" target="_blank" class="btn btn-outline">Code source</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card" data-competence="2">
-                    <div class="project-image admin-network"></div>
-                    <div class="project-content">
-                        <div class="project-badge">Compétence 2</div>
-                        <h3>SAÉ2.02 - Mesurer et caractériser un signal ou un système</h3>
-                        <p>Création d'une web radio portable.</p>
-                        <div class="project-tech">
-                            <span>ESP32</span>
-                            <span>FFT</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="S2/sae-202.html" class="btn btn-small">Voir le projet</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card" data-competence="3">
-                    <div class="project-image admin-network"></div>
-                    <div class="project-content">
-                        <div class="project-badge">Compétence 3</div>
-                        <h3>SAÉ2.03 - Mettre en place une solution informatique</h3>
-                        <p>Gestion de données.</p>
-                        <div class="project-tech">
-                            <span>Python</span>
-                            <span>Maria DB</span>
-                            <span>html/css</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="S2/sae-203.html" class="btn btn-small">Voir le projet</a>
-                            <a href="https://github.com/Lucas-hrl/SAE2.03" rel="noopener noreferrer" target="_blank" class="btn btn-outline">Code source</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card" data-competence="1">
-                    <div class="project-image admin-network"></div>
-                    <div class="project-content">
-                        <div class="project-badge">Compétences de 1ʳᵉ année (1, 2 et 3)</div>
-                        <h3>SAÉ2.04 - Intégrative</h3>
-                        <p>Résumé global de tout ce qu'on a appris durant l'année.</p>
-                        <div class="project-links">
-                            <a href="S2/sae-204.html" class="btn btn-small">Voir le projet</a>
-                            <a href="https://github.com/DrKNath/SAE2.04" rel="noopener noreferrer" target="_blank" class="btn btn-outline">Code source</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card" data-competence="2">
-                    <div class="project-image admin-network"></div>
-                    <div class="project-content">
-                        <div class="project-badge">Compétence 2</div>
-                        <h3>SAÉ3.01 - Mettre en œuvre un système de transmission</h3>
-                        <p>Création d'une prise connectée et de son interface web.</p>
-                        <div class="project-tech">
-                            <span>ESP32</span>
-                            <span>Raspberry Pi</span>
-                            <span>MQTT</span>
-                            <span>Python</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="S3/sae-301.html" class="btn btn-small">Voir le projet</a>
-                            <a href="https://github.com/DrKNath/SAE3.01" rel="noopener noreferrer" target="_blank" class="btn btn-outline">Code source</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card" data-competence="3">
-                    <div class="project-image admin-network"></div>
-                    <div class="project-content">
-                        <div class="project-badge">Compétence 3</div>
-                        <h3>SAÉ3.02 - Développer des applications communicantes</h3>
-                        <p>Application de communication anonyme (routage en oignon).</p>
-                        <div class="project-tech">
-                            <span>Python</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="S3/sae-302.html" class="btn btn-small">Voir le projet</a>
-                            <a href="https://github.com/DrKNath/SAE3.02" rel="noopener noreferrer" target="_blank" class="btn btn-outline">Code source</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!--
-                <div class="project-card" data-competence="4">
-                    <div class="project-image admin-network"></div>
-                    <div class="project-content">
-                        <div class="project-badge">Compétence 4</div>
-                        <h3>SAÉ2.0X - Titre du projet</h3>
-                        <p>Courte description du projet.</p>
-                        <div class="project-tech">
-                            <span>Outil 1</span>
-                            <span>Outil 2</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="S2/sae-20.html" class="btn btn-small">Voir le projet</a>
-                        </div>
-                    </div>
-                </div>
-                -->
-                
-            </div>
-        </div>
-    </section>
-
-    <!-- Section Projet Perso-->
-     <section id="projet" class="projects">
-        <div class="container">
-            <h2 class="section-title">Projets personnels</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>En dehors des cours, j'aime expérimenter et bidouiller mes propres projets. C'est là que je teste librement ce que j'apprends en réseaux, en systèmes et en auto-hébergement.</p>
-                </div>
-            </div>
-            <div class="projects-grid">
-
-                <div class="project-card" data-competence="4">
-                    <div class="project-image admin-network"></div>
-                    <div class="project-content">
-                        <div class="project-badge">Homelab</div>
-                        <h3>Serveur Proxmox (auto-hébergement)</h3>
-                        <p>Mon laboratoire personnel sous Proxmox VE : virtualisation de machines virtuelles et de conteneurs LXC pour héberger mes propres services et tester des configurations en dehors des cours.</p>
-                        <div class="project-tech">
-                            <span>Proxmox VE</span>
-                            <span>Machines virtuelles</span>
-                            <span>Conteneurs LXC</span>
-                            <span>Linux</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="perso/proxmox.html" class="btn btn-small">En savoir plus</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ===== AUTRE PROJET PERSO : copie ce bloc pour en ajouter un =====
-                <div class="project-card">
-                    <div class="project-image admin-network"></div>
-                    <div class="project-content">
-                        <div class="project-badge">Perso</div>
-                        <h3>[Titre du projet]</h3>
-                        <p>[Courte description]</p>
-                        <div class="project-tech">
-                            <span>[Outil 1]</span>
-                            <span>[Outil 2]</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="perso/[page].html" class="btn btn-small">En savoir plus</a>
-                        </div>
-                    </div>
-                </div>
-                ================================================================= -->
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Section Contact -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">Me Contacter</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Étudiant BUT R&amp;T</h3>
-                    <p>N'hésitez pas à me contacter pour discuter de mes projets, de stages ou d'opportunités dans le domaine des réseaux et télécommunications.</p>
-                    <div class="contact-details">
-                        <div class="contact-item">
+                    <div class="contact-links">
+                        <a class="contact-item" href="mailto:friedrich.nathanael@gmail.com">
                             <i class="fas fa-envelope"></i>
-                            <span>friedrich.nathanael@gmail.com</span>
-                        </div>
+                            <div><small>E-mail</small><span>friedrich.nathanael@gmail.com</span></div>
+                            <i class="fas fa-arrow-right go"></i>
+                        </a>
+                        <a class="contact-item" href="https://linkedin.com/in/nathanaël-friedrich-967161340" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-linkedin-in"></i>
+                            <div><small>LinkedIn</small><span>Nathanaël Friedrich</span></div>
+                            <i class="fas fa-arrow-up-right-from-square go"></i>
+                        </a>
+                        <a class="contact-item" href="https://github.com/DrKNath" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-github"></i>
+                            <div><small>GitHub</small><span>DrKNath</span></div>
+                            <i class="fas fa-arrow-up-right-from-square go"></i>
+                        </a>
+                        <a class="contact-item" href="img/CV_FRIEDRICH.pdf" target="_blank" rel="noopener noreferrer">
+                            <i class="fas fa-file-pdf"></i>
+                            <div><small>Curriculum vitæ</small><span>Télécharger mon CV (PDF)</span></div>
+                            <i class="fas fa-download go"></i>
+                        </a>
                         <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>France — Colmar / Sarreguemines</span>
+                            <i class="fas fa-location-dot"></i>
+                            <div><small>Localisation</small><span>Colmar / Sarreguemines, France</span></div>
                         </div>
-                        <div class="contact-item">
-                            <i class="fas fa-graduation-cap"></i>
-                            <span>BUT Réseaux et Télécommunications</span>
-                        </div>
-                    </div>
-                    <div class="social-links">
-                        <a href="https://linkedin.com/in/nathanaël-friedrich-967161340" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://github.com/DrKNath" target="_blank" rel="noopener noreferrer" title="GitHub"><i class="fab fa-github"></i></a>
-                        <a href="img/CV_FRIEDRICH.pdf" target="_blank" rel="noopener noreferrer" title="CV PDF"><i class="fas fa-file-pdf"></i></a>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2026 Portfolio BUT Réseaux et Télécommunications — Nathanaël Friedrich.</p>
+            <p>&copy; <span class="current-year">2026</span> Nathanaël Friedrich — BUT Réseaux &amp; Télécommunications</p>
+            <div class="footer-links">
+                <a href="#projets">Projets</a>
+                <a href="#alternance">Alternance</a>
+                <a href="https://github.com/DrKNath" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
         </div>
     </footer>
+
+    <button class="back-to-top" type="button" aria-label="Revenir en haut"><i class="fas fa-arrow-up"></i></button>
 
     <script src="script.js"></script>
 </body>

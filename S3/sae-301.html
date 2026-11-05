@@ -3,37 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SAÉ3.01</title>
+    <title>SAÉ3.01 — Mettre en œuvre un système de transmission — Nathanaël Friedrich</title>
+    <meta name="description" content="Prise connectée pilotée depuis une interface web : architecture IoT ESP32 ↔ Raspberry Pi.">
+    <meta name="theme-color" content="#0b1222">
+    <link rel="icon" type="image/png" href="../img/icon.png">
+    <script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}document.documentElement.classList.add('js');</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="../style.css">
-    <link rel="icon" type="image/png" href="img/icon.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
+    <a class="skip-link" href="#contenu">Aller au contenu</a>
+    <div class="scroll-progress" aria-hidden="true"></div>
+
+    <!-- Navigation (identique sur toutes les sous-pages) -->
+    <nav class="navbar on-hero" aria-label="Navigation principale">
         <div class="nav-container">
-            <div class="nav-logo">
-                <h2>SAÉ3.01 - Mettre en œuvre un système de transmission</h2>
-            </div>
-            <ul class="nav-menu">
-                <li class="nav-item">
-                <a href="../index.html#SAE" class="nav-link">Accueil</a>
-                </li>
+            <a href="../index.html" class="nav-logo">
+                <span class="logo-mark">NF</span>
+                <span class="logo-text">Nathanaël Friedrich</span>
+            </a>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="../index.html#apropos" class="nav-link">À propos</a></li>
+                <li><a href="../index.html#alternance" class="nav-link">Alternance</a></li>
+                <li><a href="../index.html#projets" class="nav-link active">Projets</a></li>
+                <li><a href="../index.html#perso" class="nav-link">Homelab</a></li>
+                <li><a href="../index.html#competences" class="nav-link">Compétences</a></li>
+                <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
             </ul>
-            <div class="nav-toggle">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+            <div class="nav-actions">
+                <button class="theme-toggle" type="button" aria-label="Changer de thème (clair / sombre)">
+                    <i class="fas fa-moon"></i><i class="fas fa-sun"></i>
+                </button>
+                <a href="../img/CV_FRIEDRICH.pdf" class="nav-cta" target="_blank" rel="noopener noreferrer">
+                    <i class="fas fa-file-arrow-down"></i><span>CV</span>
+                </a>
+                <button class="nav-toggle" type="button" aria-label="Ouvrir le menu" aria-controls="nav-menu" aria-expanded="false">
+                    <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+                </button>
             </div>
         </div>
     </nav>
 
-    <section id="projets" class="projects">
+    <header class="page-header" data-competence="2">
         <div class="container">
-            <div class="projects-grid">
+            <nav class="breadcrumb" aria-label="Fil d'Ariane">
+                <a href="../index.html"><i class="fas fa-house"></i> Accueil</a>
+                <i class="fas fa-chevron-right sep"></i>
+                <a href="../index.html#projets">Projets SAÉ</a>
+                <i class="fas fa-chevron-right sep"></i>
+                <span aria-current="page">SAÉ3.01</span>
+            </nav>
+            <div class="page-meta"><span class="chip"><i class="fas fa-calendar"></i> Semestre 3</span><span class="chip chip-c">Compétence 2</span></div>
+            <h1><span class="code">SAÉ3.01</span>Mettre en œuvre un système de transmission</h1>
+            <p class="page-lead">Prise connectée pilotée depuis une interface web : architecture IoT ESP32 ↔ Raspberry Pi.</p>
+            <div class="page-actions">
+                <a href="https://github.com/DrKNath/SAE3.01" class="btn btn-primary" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> Code source</a>
+                <a href="../index.html#projets" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Tous les projets</a>
+            </div>
+        </div>
+    </header>
+
+
+    <main id="contenu" class="detail">
+        <div class="container">
+            <div class="detail-grid">
                 <div class="project-card">
                     <div class="project-content">
-                        <h3>Le projet :</h3>
+                        <h3><i class="fas fa-circle-info"></i> Le projet</h3>
                         <p>Dans le cadre de cette SAÉ réalisée en groupe, notre objectif était de concevoir et de déployer une architecture IoT bidirectionnelle de bout en bout pour assurer la transmission de données entre une interface utilisateur et un système embarqué.</p>
                         <p>Pour ce faire, nous avons d'abord configuré une Raspberry Pi faisant office de serveur local, sur laquelle nous avons intégré un broker (MQTT) et développé une interface web dynamique à l'aide du framework Flask en Python. En parallèle, j'ai participé à la programmation d'un microcontrôleur ESP32 pour le connecter au réseau afin qu'il communique avec notre serveur. Cette installation nous a permis de gérer les flux de données dans les deux sens : l'envoi d'une commande depuis la page web pour allumer une LED, et la remontée d'informations en temps réel vers le serveur grâce à un bouton poussoir physique câblé sur l'ESP32 pour éteindre cette même LED.</p>
 
@@ -51,7 +90,7 @@
 
                 <div class="project-card">
                     <div class="project-content">
-                        <h3>Apprentissages critiques :</h3>
+                        <h3><i class="fas fa-list-check"></i> Apprentissages critiques</h3>
                         <ul>
                             <li>AC12.03 | Déployer des supports de transmission</li>
                             <li>AC22.01 | Déployer et caractériser des systèmes de transmissions complexes</li>
@@ -64,7 +103,24 @@
 
             </div>
         </div>
-    </section>
+    </main>
+
+    <nav class="pager container" aria-label="Projets précédent et suivant">
+        <a class="prev" href="../S2/sae-204.html"><small><i class="fas fa-arrow-left"></i> Projet précédent</small><strong>SAÉ2.04 — Projet intégratif</strong></a>
+        <a class="next" href="../S3/sae-302.html"><small>Projet suivant <i class="fas fa-arrow-right"></i></small><strong>SAÉ3.02 — Développer des applications communicantes</strong></a>
+    </nav>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; <span class="current-year">2026</span> Nathanaël Friedrich — BUT Réseaux &amp; Télécommunications</p>
+            <div class="footer-links">
+                <a href="../index.html#projets">Tous les projets</a>
+                <a href="../index.html#contact">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" type="button" aria-label="Revenir en haut"><i class="fas fa-arrow-up"></i></button>
 
     <script src="../script.js"></script>
 </body>

@@ -1,67 +1,98 @@
 <!DOCTYPE html>
 <!--
-  ============================================================================
-  GABARIT DE PAGE SAÉ
-  ----------------------------------------------------------------------------
-  COMMENT L'UTILISER :
-  1. Copie ce fichier dans le bon dossier (ex : S2/) et renomme-le
-     (ex : sae-202.html).
-  2. Remplace tout ce qui est entre [crochets] par ton contenu.
-  3. Ajoute la carte du projet sur la page d'accueil : copie le bloc
-     "NOUVELLE SAÉ" déjà présent dans index.html (section Projets) et
-     fais pointer le lien vers ta nouvelle page.
-  4. Si tu n'as pas d'images, supprime simplement le bloc <div class="image-sae">.
-
-  Remplace data-competence et le badge par le bon numéro de compétence (1 à 5).
-  ============================================================================
+  ===== MODÈLE DE PAGE SAÉ =====
+  1. Copie ce fichier dans le dossier du semestre (S3/, S4/...) et renomme-le (ex : sae-401.html).
+  2. Remplace tout ce qui est entre [crochets].
+  3. data-competence="X" (1 à 5) change la couleur de l'en-tête.
+  4. Mets à jour les liens "Projet précédent / suivant" en bas, et ajoute la carte
+     tout EN HAUT de la grille #sae-grid dans index.html (les plus récentes en premier).
+  5. Images : place-les dans img/SAEXXX/ (à la racine) et utilise src="../img/SAEXXX/....png".
 -->
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SAÉ[X.XX]</title>
+    <title>SAÉ[X.XX] — [Titre] — Nathanaël Friedrich</title>
+    <meta name="description" content="[Résumé du projet en une phrase.]">
+    <meta name="theme-color" content="#0b1222">
+    <link rel="icon" type="image/png" href="../img/icon.png">
+    <script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}document.documentElement.classList.add('js');</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="../style.css">
-    <link rel="icon" type="image/png" href="img/icon.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
+    <a class="skip-link" href="#contenu">Aller au contenu</a>
+    <div class="scroll-progress" aria-hidden="true"></div>
+
+    <!-- Navigation (identique sur toutes les sous-pages) -->
+    <nav class="navbar on-hero" aria-label="Navigation principale">
         <div class="nav-container">
-            <div class="nav-logo">
-                <h2>SAÉ[X.XX] - [Titre du projet]</h2>
-            </div>
-            <ul class="nav-menu">
-                <li class="nav-item">
-                <a href="../index.html#projets" class="nav-link">Accueil</a>
-                </li>
+            <a href="../index.html" class="nav-logo">
+                <span class="logo-mark">NF</span>
+                <span class="logo-text">Nathanaël Friedrich</span>
+            </a>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="../index.html#apropos" class="nav-link">À propos</a></li>
+                <li><a href="../index.html#alternance" class="nav-link">Alternance</a></li>
+                <li><a href="../index.html#projets" class="nav-link active">Projets</a></li>
+                <li><a href="../index.html#perso" class="nav-link">Homelab</a></li>
+                <li><a href="../index.html#competences" class="nav-link">Compétences</a></li>
+                <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
             </ul>
-            <div class="nav-toggle">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+            <div class="nav-actions">
+                <button class="theme-toggle" type="button" aria-label="Changer de thème (clair / sombre)">
+                    <i class="fas fa-moon"></i><i class="fas fa-sun"></i>
+                </button>
+                <a href="../img/CV_FRIEDRICH.pdf" class="nav-cta" target="_blank" rel="noopener noreferrer">
+                    <i class="fas fa-file-arrow-down"></i><span>CV</span>
+                </a>
+                <button class="nav-toggle" type="button" aria-label="Ouvrir le menu" aria-controls="nav-menu" aria-expanded="false">
+                    <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+                </button>
             </div>
         </div>
     </nav>
 
-    <section id="projets" class="projects">
+    <header class="page-header" data-competence="[X]">
         <div class="container">
-            <div class="projects-grid">
+            <nav class="breadcrumb" aria-label="Fil d'Ariane">
+                <a href="../index.html"><i class="fas fa-house"></i> Accueil</a>
+                <i class="fas fa-chevron-right sep"></i>
+                <a href="../index.html#projets">Projets SAÉ</a>
+                <i class="fas fa-chevron-right sep"></i>
+                <span aria-current="page">SAÉ[X.XX]</span>
+            </nav>
+            <div class="page-meta"><span class="chip"><i class="fas fa-calendar"></i> Semestre [X]</span><span class="chip chip-c">Compétence [X]</span></div>
+            <h1><span class="code">SAÉ[X.XX]</span>[Titre du projet]</h1>
+            <p class="page-lead">[Résumé du projet en une phrase.]</p>
+            <div class="page-actions">
+                <a href="https://github.com/DrKNath/[DEPOT]" class="btn btn-primary" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> Code source</a>
+                <a href="../index.html#projets" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Tous les projets</a>
+            </div>
+        </div>
+    </header>
+
+
+    <main id="contenu" class="detail">
+        <div class="container">
+            <div class="detail-grid">
 
                 <!-- Carte 1 : description du projet -->
                 <div class="project-card">
                     <div class="project-content">
-                        <h3>Le projet :</h3>
+                        <h3><i class="fas fa-circle-info"></i> Le projet</h3>
                         <p>[Décris le contexte et l'objectif de la SAÉ.]</p>
                         <p>[Explique ce que tu as concrètement réalisé : étapes, choix techniques, outils utilisés.]</p>
 
-                        <!-- Bloc images (facultatif) : supprime-le si tu n'as pas de captures.
-                             Place tes images dans le dossier img/ du semestre (ex : S2/img/...). -->
+                        <!-- Bloc images (facultatif) : supprime-le si tu n'as pas de captures. -->
                         <div class="image-sae">
                             <p>Voici un aperçu du résultat final :</p>
                             <div class="image-gallery">
-                                <img src="img/[dossier]/[image1].png" alt="[Description de l'image 1]" class="image-SAE">
-                                <img src="img/[dossier]/[image2].png" alt="[Description de l'image 2]" class="image-SAE">
+                                <img src="../img/[dossier]/[image1].png" alt="[Description de l'image 1]" class="image-SAE">
+                                <img src="../img/[dossier]/[image2].png" alt="[Description de l'image 2]" class="image-SAE">
                             </div>
                         </div>
                     </div>
@@ -70,9 +101,8 @@
                 <!-- Carte 2 : apprentissages critiques -->
                 <div class="project-card">
                     <div class="project-content">
-                        <h3>Apprentissages critiques :</h3>
+                        <h3><i class="fas fa-list-check"></i> Apprentissages critiques</h3>
                         <ul>
-                            <li>AC[XX.XX] | [Intitulé de l'apprentissage critique]</li>
                             <li>AC[XX.XX] | [Intitulé de l'apprentissage critique]</li>
                             <li>AC[XX.XX] | [Intitulé de l'apprentissage critique]</li>
                         </ul>
@@ -81,7 +111,24 @@
 
             </div>
         </div>
-    </section>
+    </main>
+
+    <nav class="pager container" aria-label="Projets précédent et suivant">
+        <a class="prev" href="../[dossier]/[page-precedente].html"><small><i class="fas fa-arrow-left"></i> Projet précédent</small><strong>SAÉ[X.XX] — [Titre]</strong></a>
+        <!-- <a class="next" href="../[dossier]/[page-suivante].html"><small>Projet suivant <i class="fas fa-arrow-right"></i></small><strong>SAÉ[X.XX] — [Titre]</strong></a> -->
+    </nav>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; <span class="current-year">2026</span> Nathanaël Friedrich — BUT Réseaux &amp; Télécommunications</p>
+            <div class="footer-links">
+                <a href="../index.html#projets">Tous les projets</a>
+                <a href="../index.html#contact">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" type="button" aria-label="Revenir en haut"><i class="fas fa-arrow-up"></i></button>
 
     <script src="../script.js"></script>
 </body>

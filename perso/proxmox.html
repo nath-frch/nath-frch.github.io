@@ -3,38 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Serveur Proxmox</title>
-    <link rel="stylesheet" href="../style.css">
+    <title>Homelab Proxmox — Nathanaël Friedrich</title>
+    <meta name="description" content="Mon laboratoire personnel : un cluster Proxmox VE sur du matériel de récupération, avec un serveur de stockage TrueNAS.">
+    <meta name="theme-color" content="#0b1222">
     <link rel="icon" type="image/png" href="../img/icon.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}document.documentElement.classList.add('js');</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
+    <a class="skip-link" href="#contenu">Aller au contenu</a>
+    <div class="scroll-progress" aria-hidden="true"></div>
+
+    <!-- Navigation (identique sur toutes les sous-pages) -->
+    <nav class="navbar on-hero" aria-label="Navigation principale">
         <div class="nav-container">
-            <div class="nav-logo">
-                <h2>Serveur Proxmox — Auto-hébergement</h2>
-            </div>
-            <ul class="nav-menu">
-                <li class="nav-item">
-                <a href="../index.html#projet" class="nav-link">Accueil</a>
-                </li>
+            <a href="../index.html" class="nav-logo">
+                <span class="logo-mark">NF</span>
+                <span class="logo-text">Nathanaël Friedrich</span>
+            </a>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="../index.html#apropos" class="nav-link">À propos</a></li>
+                <li><a href="../index.html#alternance" class="nav-link">Alternance</a></li>
+                <li><a href="../index.html#projets" class="nav-link">Projets</a></li>
+                <li><a href="../index.html#perso" class="nav-link active">Homelab</a></li>
+                <li><a href="../index.html#competences" class="nav-link">Compétences</a></li>
+                <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
             </ul>
-            <div class="nav-toggle">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+            <div class="nav-actions">
+                <button class="theme-toggle" type="button" aria-label="Changer de thème (clair / sombre)">
+                    <i class="fas fa-moon"></i><i class="fas fa-sun"></i>
+                </button>
+                <a href="../img/CV_FRIEDRICH.pdf" class="nav-cta" target="_blank" rel="noopener noreferrer">
+                    <i class="fas fa-file-arrow-down"></i><span>CV</span>
+                </a>
+                <button class="nav-toggle" type="button" aria-label="Ouvrir le menu" aria-controls="nav-menu" aria-expanded="false">
+                    <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+                </button>
             </div>
         </div>
     </nav>
 
-    <section id="projets" class="projects">
+    <header class="page-header" data-competence="4">
         <div class="container">
-            <div class="projects-grid">
+            <nav class="breadcrumb" aria-label="Fil d'Ariane">
+                <a href="../index.html"><i class="fas fa-house"></i> Accueil</a>
+                <i class="fas fa-chevron-right sep"></i>
+                <a href="../index.html#perso">Projets perso</a>
+                <i class="fas fa-chevron-right sep"></i>
+                <span aria-current="page">Cluster Proxmox &amp; auto-hébergement</span>
+            </nav>
+            <div class="page-meta"><span class="chip"><i class="fas fa-house-laptop"></i> Projet personnel</span><span class="chip chip-c">En cours</span></div>
+            <h1>Cluster Proxmox &amp; auto-hébergement</h1>
+            <p class="page-lead">Mon laboratoire personnel : un cluster Proxmox VE sur du matériel de récupération, avec un serveur de stockage TrueNAS.</p>
+            <div class="page-actions">
+                <a href="../index.html#perso" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Retour au portfolio</a>
+            </div>
+        </div>
+    </header>
+
+
+    <main id="contenu" class="detail">
+        <div class="container">
+            <div class="detail-grid">
 
                 <div class="project-card">
                     <div class="project-content">
-                        <h3>Le projet :</h3>
+                        <h3><i class="fas fa-circle-info"></i> Le projet</h3>
                         <p>Proxmox VE est un hyperviseur open source qui me sert de laboratoire personnel à la maison. Mon installation repose sur un cluster Proxmox composé de plusieurs nœuds, accompagné d'un serveur de stockage TrueNAS à côté. Le cluster me permet de faire tourner de nombreuses machines virtuelles et conteneurs LXC, de répartir la charge entre les nœuds et de tester librement des configurations réseau, des serveurs et des services.</p>
                         <p>Les services que j'héberge :</p>
                         <div class="project-tech">
@@ -59,7 +97,7 @@
 
                 <div class="project-card">
                     <div class="project-content">
-                        <h3>Ce que ça m'apporte :</h3>
+                        <h3><i class="fas fa-list-check"></i> Ce que ça m'apporte</h3>
                         <ul>
                             <li>Virtualisation et gestion d'un hyperviseur (VM, conteneurs LXC, snapshots, sauvegardes)</li>
                             <li>Mise en cluster de plusieurs nœuds (répartition de la charge, migration de machines virtuelles)</li>
@@ -73,7 +111,19 @@
 
             </div>
         </div>
-    </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; <span class="current-year">2026</span> Nathanaël Friedrich — BUT Réseaux &amp; Télécommunications</p>
+            <div class="footer-links">
+                <a href="../index.html#projets">Tous les projets</a>
+                <a href="../index.html#contact">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" type="button" aria-label="Revenir en haut"><i class="fas fa-arrow-up"></i></button>
 
     <script src="../script.js"></script>
 </body>
