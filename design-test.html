@@ -5,37 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test des palettes — Nathanaël Friedrich</title>
     <meta name="robots" content="noindex">
+    <meta name="description" content="Portfolio de Nathanaël Friedrich, étudiant en 3ᵉ année de BUT Réseaux &amp; Télécommunications (parcours cybersécurité) à Colmar, en alternance comme technicien support et déploiement de plateformes de test.">
+    <meta property="og:title" content="Nathanaël Friedrich — Portfolio BUT R&amp;T">
+    <meta property="og:description" content="Projets SAÉ, alternance et homelab Proxmox : réseaux, systèmes et cybersécurité.">
     <link rel="icon" type="image/png" href="img/icon.png">
-    <script>(function(d){d.classList.add('js');try{var t=localStorage.getItem('theme');if(t)d.setAttribute('data-theme',t);sessionStorage.removeItem('palette')}catch(e){}})(document.documentElement);</script>
+    <script>(function(d){d.classList.add('js');try{var t=localStorage.getItem('theme');if(t)d.setAttribute('data-theme',t);d.setAttribute('data-palette',sessionStorage.getItem('palette')||'violet')}catch(e){}})(document.documentElement);</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Caveat:wght@600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <style>
         /* Styles propres à cette page de test (à supprimer avec elle) */
         .dt-wrap { padding: calc(var(--nav-h) + 48px) 0 64px; }
-        .dt-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; margin-top: 2.5rem; }
+        .dt-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
         .dt-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; display: flex; flex-direction: column; }
-        .dt-preview { position: relative; height: 190px; padding: 1.2rem 1.3rem; background:
-            radial-gradient(ellipse 35% 60% at 0% 55%, color-mix(in srgb, var(--pv-g2) 55%, transparent), transparent 70%),
-            radial-gradient(ellipse 35% 60% at 100% 40%, color-mix(in srgb, var(--pv-g1) 55%, transparent), transparent 70%),
-            var(--pv-bg); color: #fff; overflow: hidden; }
-        .dt-pill { display: inline-flex; align-items: center; gap: .4rem; font-size: .7rem; padding: .2rem .6rem; border-radius: 999px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15); }
-        .dt-pill i { width: 6px; height: 6px; border-radius: 50%; background: #22c55e; }
-        .dt-title { margin-top: .8rem; font-weight: 800; font-size: 1.25rem; line-height: 1.15; letter-spacing: -.02em; }
-        .dt-title b { background: linear-gradient(90deg, var(--pv-a), var(--pv-l) 50%, var(--pv-g1)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
-        .dt-btns { display: flex; gap: .5rem; margin-top: 1rem; font-size: .72rem; font-weight: 600; }
-        .dt-b1 { background: #fff; color: var(--pv-bg); padding: .35rem .8rem; border-radius: 999px; }
-        .dt-b2 { border: 1px solid rgba(255,255,255,.3); padding: .35rem .8rem; border-radius: 999px; }
-        .dt-swatches { display: grid; grid-template-columns: repeat(6, 1fr); height: 46px; }
+        .dt-previews { display: grid; grid-template-columns: 1fr 1fr; }
+        .dt-mock { padding: 1.1rem 1rem 1.2rem; display: flex; flex-direction: column; gap: .35rem; min-height: 170px; }
+        .dt-mock.light { background: color-mix(in srgb, var(--p4) 14%, #fff); color: var(--p0); }
+        .dt-mock.dark { background: var(--p0); color: color-mix(in srgb, var(--p4) 72%, #fff); }
+        .dt-hello { font-family: var(--hand); font-size: 1.05rem; font-weight: 600; color: var(--pa); line-height: 1; }
+        .dt-mock.dark .dt-hello { color: var(--pa-d); }
+        .dt-mock strong { font-family: var(--display); font-size: 1.15rem; line-height: 1.1; font-weight: 800; }
+        .dt-mock mark { background-image: linear-gradient(100deg, transparent 2%, color-mix(in srgb, var(--hl) 40%, transparent) 4%, color-mix(in srgb, var(--hl) 40%, transparent) 96%, transparent 98%); }
+        .dt-line { height: 6px; width: 90%; border-radius: 3px; background: currentColor; opacity: .18; }
+        .dt-line.short { width: 60%; }
+        .dt-btn { align-self: flex-start; margin-top: auto; font-size: .7rem; font-weight: 600; padding: .3rem .7rem; border-radius: 999px; background: var(--pa); color: var(--on-a); }
+        .dt-mock.dark .dt-btn { background: var(--pa-d); color: var(--on-a-d); }
+        .dt-swatches { display: grid; grid-template-columns: repeat(6, 1fr); height: 40px; }
         .dt-swatches span { position: relative; }
-        .dt-swatches em { position: absolute; bottom: 3px; left: 0; right: 0; text-align: center; font: 600 .55rem var(--mono); font-style: normal; color: #fff; mix-blend-mode: difference; opacity: .8; }
-        .dt-body { padding: 1.3rem 1.4rem 1.5rem; display: flex; flex-direction: column; gap: .6rem; flex: 1; }
-        .dt-body h3 { font-size: 1.1rem; }
-        .dt-body p { color: var(--muted); font-size: .92rem; flex: 1; }
-        .dt-body .btn { align-self: flex-start; }
-        .dt-steps { display: grid; gap: .5rem; margin-top: 1.2rem; color: var(--muted); padding-left: 1.2rem; }
+        .dt-swatches em { position: absolute; bottom: 3px; left: 0; right: 0; text-align: center; font: 600 .52rem var(--mono); font-style: normal; color: #fff; mix-blend-mode: difference; opacity: .85; }
+        .dt-body { padding: 1rem 1.2rem 1.2rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+        .dt-body h3 { font-size: 1.05rem; }
+        .dt-card .btn-primary { background: var(--pa); color: var(--on-a); }
+        .dt-steps { display: grid; gap: .4rem; margin-top: 1rem; color: var(--muted); padding-left: 1.2rem; }
     </style>
 </head>
 <body>
@@ -57,92 +60,203 @@
     <main class="dt-wrap">
         <div class="container">
             <div class="section-head">
-                <span class="section-eyebrow">// page de test — à supprimer une fois le choix fait</span>
+                <p class="hero-hello">page de test</p>
                 <h1 class="section-title">Choisis la palette du portfolio</h1>
-                <p class="section-intro">Chaque palette s'applique à tout le site (accueil et pages projets), en mode clair et en mode sombre.</p>
+                <p class="section-intro">Chaque palette s'applique à tout le site, en mode clair (à gauche) et en mode sombre (à droite).</p>
                 <ol class="dt-steps">
                     <li>Clique sur <strong>« Tester ce design »</strong> pour ouvrir le site avec cette palette.</li>
                     <li>Le bouton <i class="fas fa-moon"></i> / <i class="fas fa-sun"></i> en haut bascule entre clair et sombre.</li>
-                    <li>La pastille en bas de l'écran permet de changer de palette sans revenir ici.</li>
+                    <li>Les pastilles en bas à gauche permettent de changer de palette sans revenir ici.</li>
                 </ol>
             </div>
             <div class="dt-grid">
-            <article class="dt-card">
-                <div class="dt-preview" style="--pv-bg:#0b1222;--pv-g1:#5b8cff;--pv-g2:#a78bfa;--pv-a:#7c3aed;--pv-l:#e6ebf4">
-                    <div class="dt-pill"><i></i> En alternance</div>
-                    <div class="dt-title">Nathanaël Friedrich<br><b>Réseaux &amp; systèmes</b></div>
-                    <div class="dt-btns"><span class="dt-b1">Voir mes projets</span><span class="dt-b2">Contact</span></div>
+            <article class="dt-card" style="--p0:#0E0B1D;--p1:#2A1E4D;--p4:#C9C2E3;--pa:#5A3B8C;--on-a:#fff;--pa-d:#8B7CC7;--on-a-d:#0E0B1D;--hl:#8B7CC7">
+                <div class="dt-previews">
+                    <div class="dt-mock light">
+                        <span class="dt-hello">Salut, moi c'est</span>
+                        <strong>Nathanaël <mark>Friedrich.</mark></strong>
+                        <span class="dt-line"></span><span class="dt-line short"></span>
+                        <span class="dt-btn">Voir mes projets</span>
+                    </div>
+                    <div class="dt-mock dark">
+                        <span class="dt-hello">Salut, moi c'est</span>
+                        <strong>Nathanaël <mark>Friedrich.</mark></strong>
+                        <span class="dt-line"></span><span class="dt-line short"></span>
+                        <span class="dt-btn">Voir mes projets</span>
+                    </div>
                 </div>
-                <div class="dt-swatches"><span style="background:#0b1222" title="#0b1222"><em>#0b1222</em></span><span style="background:#1d4ed8" title="#1d4ed8"><em>#1d4ed8</em></span><span style="background:#2563eb" title="#2563eb"><em>#2563eb</em></span><span style="background:#7c3aed" title="#7c3aed"><em>#7c3aed</em></span><span style="background:#e6ebf4" title="#e6ebf4"><em>#e6ebf4</em></span><span style="background:#ea580c" title="#ea580c"><em>#ea580c</em></span></div>
+                <div class="dt-swatches"><span style="background:#0E0B1D"><em>#0E0B1D</em></span><span style="background:#2A1E4D"><em>#2A1E4D</em></span><span style="background:#5A3B8C"><em>#5A3B8C</em></span><span style="background:#8B7CC7"><em>#8B7CC7</em></span><span style="background:#C9C2E3"><em>#C9C2E3</em></span><span style="background:#3A3A52"><em>#3A3A52</em></span></div>
                 <div class="dt-body">
-                    <h3>Actuelle (bleu)</h3>
-                    <p>La version que je t'ai proposée au départ : bleu, violet et orange.</p>
-                    <a class="btn btn-primary btn-small" href="index.html?palette=defaut"><i class="fas fa-eye"></i> Tester ce design</a>
+                    <h3>1 · Violet nuit</h3>
+                    <a class="btn btn-primary btn-small" href="index.html?palette=violet">Tester ce design <i class="fas fa-arrow-right"></i></a>
                 </div>
             </article>
-            <article class="dt-card">
-                <div class="dt-preview" style="--pv-bg:#0E0B1D;--pv-g1:#B26BFF;--pv-g2:#7C5CFF;--pv-a:#8B7CC7;--pv-l:#C9C2E3">
-                    <div class="dt-pill"><i></i> En alternance</div>
-                    <div class="dt-title">Nathanaël Friedrich<br><b>Réseaux &amp; systèmes</b></div>
-                    <div class="dt-btns"><span class="dt-b1">Voir mes projets</span><span class="dt-b2">Contact</span></div>
+            <article class="dt-card" style="--p0:#1A120E;--p1:#3A2418;--p4:#D5C4AE;--pa:#6B4A2E;--on-a:#fff;--pa-d:#A88462;--on-a-d:#1A120E;--hl:#A88462">
+                <div class="dt-previews">
+                    <div class="dt-mock light">
+                        <span class="dt-hello">Salut, moi c'est</span>
+                        <strong>Nathanaël <mark>Friedrich.</mark></strong>
+                        <span class="dt-line"></span><span class="dt-line short"></span>
+                        <span class="dt-btn">Voir mes projets</span>
+                    </div>
+                    <div class="dt-mock dark">
+                        <span class="dt-hello">Salut, moi c'est</span>
+                        <strong>Nathanaël <mark>Friedrich.</mark></strong>
+                        <span class="dt-line"></span><span class="dt-line short"></span>
+                        <span class="dt-btn">Voir mes projets</span>
+                    </div>
                 </div>
-                <div class="dt-swatches"><span style="background:#0E0B1D" title="#0E0B1D"><em>#0E0B1D</em></span><span style="background:#2A1E4D" title="#2A1E4D"><em>#2A1E4D</em></span><span style="background:#5A3B8C" title="#5A3B8C"><em>#5A3B8C</em></span><span style="background:#8B7CC7" title="#8B7CC7"><em>#8B7CC7</em></span><span style="background:#C9C2E3" title="#C9C2E3"><em>#C9C2E3</em></span><span style="background:#3A3A52" title="#3A3A52"><em>#3A3A52</em></span></div>
+                <div class="dt-swatches"><span style="background:#1A120E"><em>#1A120E</em></span><span style="background:#3A2418"><em>#3A2418</em></span><span style="background:#6B4A2E"><em>#6B4A2E</em></span><span style="background:#A88462"><em>#A88462</em></span><span style="background:#D5C4AE"><em>#D5C4AE</em></span><span style="background:#4A4A46"><em>#4A4A46</em></span></div>
                 <div class="dt-body">
-                    <h3>Violet nuit</h3>
-                    <p>Palette 1 de tes captures : violets profonds et lavande.</p>
-                    <a class="btn btn-primary btn-small" href="index.html?palette=violet"><i class="fas fa-eye"></i> Tester ce design</a>
+                    <h3>2 · Caramel</h3>
+                    <a class="btn btn-primary btn-small" href="index.html?palette=caramel">Tester ce design <i class="fas fa-arrow-right"></i></a>
                 </div>
             </article>
-            <article class="dt-card">
-                <div class="dt-preview" style="--pv-bg:#1A120E;--pv-g1:#E8955A;--pv-g2:#B5703A;--pv-a:#A88462;--pv-l:#D5C4AE">
-                    <div class="dt-pill"><i></i> En alternance</div>
-                    <div class="dt-title">Nathanaël Friedrich<br><b>Réseaux &amp; systèmes</b></div>
-                    <div class="dt-btns"><span class="dt-b1">Voir mes projets</span><span class="dt-b2">Contact</span></div>
+            <article class="dt-card" style="--p0:#0F1F17;--p1:#1E3A2E;--p4:#C7CBB8;--pa:#3E5A3F;--on-a:#fff;--pa-d:#9DB08F;--on-a-d:#0F1F17;--hl:#8FA287">
+                <div class="dt-previews">
+                    <div class="dt-mock light">
+                        <span class="dt-hello">Salut, moi c'est</span>
+                        <strong>Nathanaël <mark>Friedrich.</mark></strong>
+                        <span class="dt-line"></span><span class="dt-line short"></span>
+                        <span class="dt-btn">Voir mes projets</span>
+                    </div>
+                    <div class="dt-mock dark">
+                        <span class="dt-hello">Salut, moi c'est</span>
+                        <strong>Nathanaël <mark>Friedrich.</mark></strong>
+                        <span class="dt-line"></span><span class="dt-line short"></span>
+                        <span class="dt-btn">Voir mes projets</span>
+                    </div>
                 </div>
-                <div class="dt-swatches"><span style="background:#1A120E" title="#1A120E"><em>#1A120E</em></span><span style="background:#3A2418" title="#3A2418"><em>#3A2418</em></span><span style="background:#6B4A2E" title="#6B4A2E"><em>#6B4A2E</em></span><span style="background:#A88462" title="#A88462"><em>#A88462</em></span><span style="background:#D5C4AE" title="#D5C4AE"><em>#D5C4AE</em></span><span style="background:#4A4A46" title="#4A4A46"><em>#4A4A46</em></span></div>
+                <div class="dt-swatches"><span style="background:#0F1F17"><em>#0F1F17</em></span><span style="background:#1E3A2E"><em>#1E3A2E</em></span><span style="background:#3E5A3F"><em>#3E5A3F</em></span><span style="background:#6B7F67"><em>#6B7F67</em></span><span style="background:#C7CBB8"><em>#C7CBB8</em></span><span style="background:#3D4337"><em>#3D4337</em></span></div>
                 <div class="dt-body">
-                    <h3>Caramel</h3>
-                    <p>Palette 2 : bruns chauds, sable et gris.</p>
-                    <a class="btn btn-primary btn-small" href="index.html?palette=caramel"><i class="fas fa-eye"></i> Tester ce design</a>
+                    <h3>3 · Olive</h3>
+                    <a class="btn btn-primary btn-small" href="index.html?palette=olive">Tester ce design <i class="fas fa-arrow-right"></i></a>
                 </div>
             </article>
-            <article class="dt-card">
-                <div class="dt-preview" style="--pv-bg:#0F1F17;--pv-g1:#CDEB5A;--pv-g2:#7FA33A;--pv-a:#6B7F67;--pv-l:#C7CBB8">
-                    <div class="dt-pill"><i></i> En alternance</div>
-                    <div class="dt-title">Nathanaël Friedrich<br><b>Réseaux &amp; systèmes</b></div>
-                    <div class="dt-btns"><span class="dt-b1">Voir mes projets</span><span class="dt-b2">Contact</span></div>
+            <article class="dt-card" style="--p0:#0B132B;--p1:#1C2541;--p4:#F4D6B0;--pa:#1C2541;--on-a:#fff;--pa-d:#5BC0DE;--on-a-d:#0B132B;--hl:#D97706">
+                <div class="dt-previews">
+                    <div class="dt-mock light">
+                        <span class="dt-hello">Salut, moi c'est</span>
+                        <strong>Nathanaël <mark>Friedrich.</mark></strong>
+                        <span class="dt-line"></span><span class="dt-line short"></span>
+                        <span class="dt-btn">Voir mes projets</span>
+                    </div>
+                    <div class="dt-mock dark">
+                        <span class="dt-hello">Salut, moi c'est</span>
+                        <strong>Nathanaël <mark>Friedrich.</mark></strong>
+                        <span class="dt-line"></span><span class="dt-line short"></span>
+                        <span class="dt-btn">Voir mes projets</span>
+                    </div>
                 </div>
-                <div class="dt-swatches"><span style="background:#0F1F17" title="#0F1F17"><em>#0F1F17</em></span><span style="background:#1E3A2E" title="#1E3A2E"><em>#1E3A2E</em></span><span style="background:#3E5A3F" title="#3E5A3F"><em>#3E5A3F</em></span><span style="background:#6B7F67" title="#6B7F67"><em>#6B7F67</em></span><span style="background:#C7CBB8" title="#C7CBB8"><em>#C7CBB8</em></span><span style="background:#3D4337" title="#3D4337"><em>#3D4337</em></span></div>
+                <div class="dt-swatches"><span style="background:#0B132B"><em>#0B132B</em></span><span style="background:#1C2541"><em>#1C2541</em></span><span style="background:#3A506B"><em>#3A506B</em></span><span style="background:#5BC0DE"><em>#5BC0DE</em></span><span style="background:#F4D6B0"><em>#F4D6B0</em></span><span style="background:#D97706"><em>#D97706</em></span></div>
                 <div class="dt-body">
-                    <h3>Olive</h3>
-                    <p>Palette 3 : verts forêt et sauge, halo citron.</p>
-                    <a class="btn btn-primary btn-small" href="index.html?palette=olive"><i class="fas fa-eye"></i> Tester ce design</a>
+                    <h3>4 · Nuit &amp; ambre</h3>
+                    <a class="btn btn-primary btn-small" href="index.html?palette=ocean">Tester ce design <i class="fas fa-arrow-right"></i></a>
                 </div>
             </article>
-            <article class="dt-card">
-                <div class="dt-preview" style="--pv-bg:#121212;--pv-g1:#EC4899;--pv-g2:#22D3EE;--pv-a:#64748B;--pv-l:#F1F5F9">
-                    <div class="dt-pill"><i></i> En alternance</div>
-                    <div class="dt-title">Nathanaël Friedrich<br><b>Réseaux &amp; systèmes</b></div>
-                    <div class="dt-btns"><span class="dt-b1">Voir mes projets</span><span class="dt-b2">Contact</span></div>
+            <article class="dt-card" style="--p0:#0B0F0D;--p1:#1F2A1F;--p4:#D9C7A3;--pa:#3E5A3F;--on-a:#fff;--pa-d:#8CA98C;--on-a-d:#0B0F0D;--hl:#B08D57">
+                <div class="dt-previews">
+                    <div class="dt-mock light">
+                        <span class="dt-hello">Salut, moi c'est</span>
+                        <strong>Nathanaël <mark>Friedrich.</mark></strong>
+                        <span class="dt-line"></span><span class="dt-line short"></span>
+                        <span class="dt-btn">Voir mes projets</span>
+                    </div>
+                    <div class="dt-mock dark">
+                        <span class="dt-hello">Salut, moi c'est</span>
+                        <strong>Nathanaël <mark>Friedrich.</mark></strong>
+                        <span class="dt-line"></span><span class="dt-line short"></span>
+                        <span class="dt-btn">Voir mes projets</span>
+                    </div>
                 </div>
-                <div class="dt-swatches"><span style="background:#121212" title="#121212"><em>#121212</em></span><span style="background:#1F2937" title="#1F2937"><em>#1F2937</em></span><span style="background:#334155" title="#334155"><em>#334155</em></span><span style="background:#64748B" title="#64748B"><em>#64748B</em></span><span style="background:#F1F5F9" title="#F1F5F9"><em>#F1F5F9</em></span><span style="background:#EC4899" title="#EC4899"><em>#EC4899</em></span></div>
+                <div class="dt-swatches"><span style="background:#0B0F0D"><em>#0B0F0D</em></span><span style="background:#1F2A1F"><em>#1F2A1F</em></span><span style="background:#3E5A3F"><em>#3E5A3F</em></span><span style="background:#8CA98C"><em>#8CA98C</em></span><span style="background:#D9C7A3"><em>#D9C7A3</em></span><span style="background:#B08D57"><em>#B08D57</em></span></div>
                 <div class="dt-body">
-                    <h3>Ardoise &amp; rose</h3>
-                    <p>Palette 9 : gris ardoise avec un accent rose vif.</p>
-                    <a class="btn btn-primary btn-small" href="index.html?palette=slate"><i class="fas fa-eye"></i> Tester ce design</a>
+                    <h3>5 · Forêt &amp; laiton</h3>
+                    <a class="btn btn-primary btn-small" href="index.html?palette=foret">Tester ce design <i class="fas fa-arrow-right"></i></a>
                 </div>
             </article>
-            <article class="dt-card">
-                <div class="dt-preview" style="--pv-bg:#1A1A1F;--pv-g1:#F4A62A;--pv-g2:#7C5CFF;--pv-a:#A678B9;--pv-l:#F0D9B5">
-                    <div class="dt-pill"><i></i> En alternance</div>
-                    <div class="dt-title">Nathanaël Friedrich<br><b>Réseaux &amp; systèmes</b></div>
-                    <div class="dt-btns"><span class="dt-b1">Voir mes projets</span><span class="dt-b2">Contact</span></div>
+            <article class="dt-card" style="--p0:#0A0F14;--p1:#0F3D3E;--p4:#EADCC8;--pa:#2E6F73;--on-a:#fff;--pa-d:#7FB3B8;--on-a-d:#0A0F14;--hl:#C6601F">
+                <div class="dt-previews">
+                    <div class="dt-mock light">
+                        <span class="dt-hello">Salut, moi c'est</span>
+                        <strong>Nathanaël <mark>Friedrich.</mark></strong>
+                        <span class="dt-line"></span><span class="dt-line short"></span>
+                        <span class="dt-btn">Voir mes projets</span>
+                    </div>
+                    <div class="dt-mock dark">
+                        <span class="dt-hello">Salut, moi c'est</span>
+                        <strong>Nathanaël <mark>Friedrich.</mark></strong>
+                        <span class="dt-line"></span><span class="dt-line short"></span>
+                        <span class="dt-btn">Voir mes projets</span>
+                    </div>
                 </div>
-                <div class="dt-swatches"><span style="background:#1A1A1F" title="#1A1A1F"><em>#1A1A1F</em></span><span style="background:#2D2B55" title="#2D2B55"><em>#2D2B55</em></span><span style="background:#6A5ACD" title="#6A5ACD"><em>#6A5ACD</em></span><span style="background:#A678B9" title="#A678B9"><em>#A678B9</em></span><span style="background:#F0D9B5" title="#F0D9B5"><em>#F0D9B5</em></span><span style="background:#F4A62A" title="#F4A62A"><em>#F4A62A</em></span></div>
+                <div class="dt-swatches"><span style="background:#0A0F14"><em>#0A0F14</em></span><span style="background:#0F3D3E"><em>#0F3D3E</em></span><span style="background:#2E6F73"><em>#2E6F73</em></span><span style="background:#7FB3B8"><em>#7FB3B8</em></span><span style="background:#EADCC8"><em>#EADCC8</em></span><span style="background:#C6601F"><em>#C6601F</em></span></div>
                 <div class="dt-body">
-                    <h3>Indigo &amp; orange</h3>
-                    <p>Palette 8 : indigo et mauve, accent orange.</p>
-                    <a class="btn btn-primary btn-small" href="index.html?palette=ember"><i class="fas fa-eye"></i> Tester ce design</a>
+                    <h3>6 · Lagon &amp; rouille</h3>
+                    <a class="btn btn-primary btn-small" href="index.html?palette=lagon">Tester ce design <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+            <article class="dt-card" style="--p0:#1A0F2E;--p1:#3B1B4F;--p4:#F4D7D4;--pa:#7A2E6F;--on-a:#fff;--pa-d:#D6598F;--on-a-d:#1A0F2E;--hl:#FF6B6B">
+                <div class="dt-previews">
+                    <div class="dt-mock light">
+                        <span class="dt-hello">Salut, moi c'est</span>
+                        <strong>Nathanaël <mark>Friedrich.</mark></strong>
+                        <span class="dt-line"></span><span class="dt-line short"></span>
+                        <span class="dt-btn">Voir mes projets</span>
+                    </div>
+                    <div class="dt-mock dark">
+                        <span class="dt-hello">Salut, moi c'est</span>
+                        <strong>Nathanaël <mark>Friedrich.</mark></strong>
+                        <span class="dt-line"></span><span class="dt-line short"></span>
+                        <span class="dt-btn">Voir mes projets</span>
+                    </div>
+                </div>
+                <div class="dt-swatches"><span style="background:#1A0F2E"><em>#1A0F2E</em></span><span style="background:#3B1B4F"><em>#3B1B4F</em></span><span style="background:#7A2E6F"><em>#7A2E6F</em></span><span style="background:#D6598F"><em>#D6598F</em></span><span style="background:#F4D7D4"><em>#F4D7D4</em></span><span style="background:#FF6B6B"><em>#FF6B6B</em></span></div>
+                <div class="dt-body">
+                    <h3>7 · Framboise</h3>
+                    <a class="btn btn-primary btn-small" href="index.html?palette=framboise">Tester ce design <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+            <article class="dt-card" style="--p0:#1A1A1F;--p1:#2D2B55;--p4:#F0D9B5;--pa:#6A5ACD;--on-a:#fff;--pa-d:#F4A62A;--on-a-d:#1A1A1F;--hl:#F4A62A">
+                <div class="dt-previews">
+                    <div class="dt-mock light">
+                        <span class="dt-hello">Salut, moi c'est</span>
+                        <strong>Nathanaël <mark>Friedrich.</mark></strong>
+                        <span class="dt-line"></span><span class="dt-line short"></span>
+                        <span class="dt-btn">Voir mes projets</span>
+                    </div>
+                    <div class="dt-mock dark">
+                        <span class="dt-hello">Salut, moi c'est</span>
+                        <strong>Nathanaël <mark>Friedrich.</mark></strong>
+                        <span class="dt-line"></span><span class="dt-line short"></span>
+                        <span class="dt-btn">Voir mes projets</span>
+                    </div>
+                </div>
+                <div class="dt-swatches"><span style="background:#1A1A1F"><em>#1A1A1F</em></span><span style="background:#2D2B55"><em>#2D2B55</em></span><span style="background:#6A5ACD"><em>#6A5ACD</em></span><span style="background:#A678B9"><em>#A678B9</em></span><span style="background:#F0D9B5"><em>#F0D9B5</em></span><span style="background:#F4A62A"><em>#F4A62A</em></span></div>
+                <div class="dt-body">
+                    <h3>8 · Indigo &amp; orange</h3>
+                    <a class="btn btn-primary btn-small" href="index.html?palette=ember">Tester ce design <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+            <article class="dt-card" style="--p0:#121212;--p1:#1F2937;--p4:#F1F5F9;--pa:#334155;--on-a:#fff;--pa-d:#EC4899;--on-a-d:#121212;--hl:#EC4899">
+                <div class="dt-previews">
+                    <div class="dt-mock light">
+                        <span class="dt-hello">Salut, moi c'est</span>
+                        <strong>Nathanaël <mark>Friedrich.</mark></strong>
+                        <span class="dt-line"></span><span class="dt-line short"></span>
+                        <span class="dt-btn">Voir mes projets</span>
+                    </div>
+                    <div class="dt-mock dark">
+                        <span class="dt-hello">Salut, moi c'est</span>
+                        <strong>Nathanaël <mark>Friedrich.</mark></strong>
+                        <span class="dt-line"></span><span class="dt-line short"></span>
+                        <span class="dt-btn">Voir mes projets</span>
+                    </div>
+                </div>
+                <div class="dt-swatches"><span style="background:#121212"><em>#121212</em></span><span style="background:#1F2937"><em>#1F2937</em></span><span style="background:#334155"><em>#334155</em></span><span style="background:#64748B"><em>#64748B</em></span><span style="background:#F1F5F9"><em>#F1F5F9</em></span><span style="background:#EC4899"><em>#EC4899</em></span></div>
+                <div class="dt-body">
+                    <h3>9 · Ardoise &amp; rose</h3>
+                    <a class="btn btn-primary btn-small" href="index.html?palette=slate">Tester ce design <i class="fas fa-arrow-right"></i></a>
                 </div>
             </article>
             </div>

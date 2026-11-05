@@ -134,12 +134,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Sélecteur de palette (uniquement en mode test : ?palette=...) ---
     const PALETTES = [
-        { id: 'defaut', name: 'Actuelle', color: 'linear-gradient(135deg,#2563eb,#7c3aed)' },
-        { id: 'violet', name: 'Violet', color: 'linear-gradient(135deg,#2A1E4D,#8B7CC7)' },
-        { id: 'caramel', name: 'Caramel', color: 'linear-gradient(135deg,#3A2418,#A88462)' },
-        { id: 'olive', name: 'Olive', color: 'linear-gradient(135deg,#1E3A2E,#6B7F67)' },
-        { id: 'slate', name: 'Ardoise & rose', color: 'linear-gradient(135deg,#334155,#EC4899)' },
-        { id: 'ember', name: 'Indigo & orange', color: 'linear-gradient(135deg,#6A5ACD,#F4A62A)' }
+        { id: 'violet', name: '1 · Violet nuit', color: 'linear-gradient(135deg,#2A1E4D,#8B7CC7)' },
+        { id: 'caramel', name: '2 · Caramel', color: 'linear-gradient(135deg,#3A2418,#A88462)' },
+        { id: 'olive', name: '3 · Olive', color: 'linear-gradient(135deg,#1E3A2E,#6B7F67)' },
+        { id: 'ocean', name: '4 · Nuit & ambre', color: 'linear-gradient(135deg,#1C2541,#5BC0DE 60%,#D97706)' },
+        { id: 'foret', name: '5 · Forêt & laiton', color: 'linear-gradient(135deg,#1F2A1F,#8CA98C 60%,#B08D57)' },
+        { id: 'lagon', name: '6 · Lagon & rouille', color: 'linear-gradient(135deg,#0F3D3E,#7FB3B8 60%,#C6601F)' },
+        { id: 'framboise', name: '7 · Framboise', color: 'linear-gradient(135deg,#3B1B4F,#D6598F 60%,#FF6B6B)' },
+        { id: 'ember', name: '8 · Indigo & orange', color: 'linear-gradient(135deg,#2D2B55,#6A5ACD 60%,#F4A62A)' },
+        { id: 'slate', name: '9 · Ardoise & rose', color: 'linear-gradient(135deg,#1F2937,#64748B 60%,#EC4899)' }
     ];
     let testPalette = null;
     try { testPalette = sessionStorage.getItem('palette'); } catch (e) { /* ignoré */ }
@@ -159,8 +162,7 @@ document.addEventListener('DOMContentLoaded', () => {
             b.style.setProperty('--sw', p.color);
             b.setAttribute('aria-pressed', String(p.id === testPalette));
             b.addEventListener('click', () => {
-                if (p.id === 'defaut') root.removeAttribute('data-palette');
-                else root.setAttribute('data-palette', p.id);
+                root.setAttribute('data-palette', p.id);
                 try { sessionStorage.setItem('palette', p.id); } catch (e) { /* ignoré */ }
                 picker.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
             });
