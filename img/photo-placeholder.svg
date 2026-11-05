@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500">
+  <!-- Silhouette affichée tant que img/moi.jpg n'existe pas -->
+  <g fill="#8e94a3" fill-opacity="0.55">
+    <circle cx="200" cy="185" r="88"/>
+    <path d="M40 500c0-110 72-190 160-190s160 80 160 190z"/>
+  </g>
+  <text x="200" y="470" text-anchor="middle" font-family="Segoe Print, Comic Sans MS, cursive" font-size="26" fill="#ffffff" fill-opacity="0.9">ta photo ici</text>
+</svg>

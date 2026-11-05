@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design 6 « Vitrine » — Nathanaël Friedrich</title>
+    <meta name="robots" content="noindex">
+    <meta name="description" content="Portfolio de Nathanaël Friedrich, étudiant en 3ᵉ année de BUT Réseaux &amp; Télécommunications (parcours cybersécurité) à Colmar, en alternance comme technicien support et déploiement de plateformes de test.">
+    <meta property="og:title" content="Nathanaël Friedrich — Portfolio BUT R&amp;T">
+    <meta property="og:description" content="Projets SAÉ, alternance et homelab Proxmox : réseaux, systèmes et cybersécurité.">
+    <link rel="icon" type="image/png" href="img/icon.png">
+    <script>(function(d){d.classList.add('js');try{var t=localStorage.getItem('theme');if(t)d.setAttribute('data-theme',t);var q=new URLSearchParams(location.search).get('palette');if(q!==null){if(q)sessionStorage.setItem('palette',q);else sessionStorage.removeItem('palette')}d.setAttribute('data-palette',sessionStorage.getItem('palette')||'violet')}catch(e){}})(document.documentElement);</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Caveat:wght@600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="d-vitrine">
+    <a class="skip-link" href="#alternance">Aller au contenu</a>
+    <div class="scroll-progress" aria-hidden="true"></div>
+
+    <!-- ===================== Navigation ===================== -->
+    <nav class="navbar" aria-label="Navigation principale">
+        <div class="nav-container">
+            <a href="#accueil" class="nav-logo">
+                <span class="logo-mark">NF</span>
+                <span class="logo-text">Nathanaël Friedrich</span>
+            </a>
+            <ul class="nav-menu" id="nav-menu">
+                                <li><a href="#alternance" class="nav-link">Alternance</a></li>
+                <li><a href="#projets" class="nav-link">Projets</a></li>
+                <li><a href="#perso" class="nav-link">Homelab</a></li>
+                <li><a href="#competences" class="nav-link">Compétences</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle" type="button" aria-label="Changer de thème (clair / sombre)">
+                    <i class="fas fa-moon"></i><i class="fas fa-sun"></i>
+                </button>
+                <a href="img/CV_FRIEDRICH.pdf" class="nav-cta" target="_blank" rel="noopener noreferrer">
+                    <i class="fas fa-file-arrow-down"></i><span>CV</span>
+                </a>
+                <button class="nav-toggle" type="button" aria-label="Ouvrir le menu" aria-controls="nav-menu" aria-expanded="false">
+                    <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <header id="accueil" class="v-hero">
+        <div class="container">
+            <p class="v-eyebrow">Nathanaël Friedrich</p>
+            <h1>Réseaux.<br>Systèmes. Cyber.</h1>
+            <p class="v-sub">Étudiant en 3ᵉ année de BUT R&amp;T. Alternant depuis 2025. Homelab fait maison.</p>
+            <div class="v-links">
+                <a class="v-link" href="#alternance">Découvrir mon alternance <i class="fas fa-chevron-right"></i></a>
+                <a class="v-link" href="img/CV_FRIEDRICH.pdf" target="_blank" rel="noopener noreferrer">Télécharger le CV <i class="fas fa-chevron-right"></i></a>
+            </div>
+            <!-- Photo : dépose ta photo dans img/moi.jpg -->
+            <figure class="v-product">
+                <div class="photo"><img src="img/moi.jpg" alt="Photo de Nathanaël Friedrich" onerror="this.onerror=null;this.src='img/photo-placeholder.svg'"></div>
+                <figcaption>Colmar / Sarreguemines · parcours cybersécurité</figcaption>
+            </figure>
+        </div>
+    </header>
+
+    <main>
+        <section id="alternance" class="v-section section-alt">
+            <div class="container v-center">
+                <h2 class="v-title reveal">Deux ans d'alternance.<br>Trois missions.</h2>
+                <p class="v-sub reveal">Deux ans au service informatique interne d'une entreprise (dont le cœur de métier n'est pas l'informatique). J'y ai commencé au support, et mes missions ont grandi avec moi.</p>
+                <div class="bento">
+                    <div class="b-big reveal">
+                        <span class="num">2 ans</span>
+                        <h3>en entreprise</h3>
+                        <p>Depuis la 2ᵉ année, au service informatique interne d'une entreprise hors secteur du numérique.</p>
+                    </div>
+                    <div class="reveal"><i class="fas fa-headset"></i><h3>Support</h3><p>Aider les utilisateurs et résoudre les incidents.</p></div>
+                    <div class="reveal"><i class="fas fa-flask"></i><h3>Plateformes de test</h3><p>Préparer et déployer des environnements.</p></div>
+                    <div class="b-wide reveal"><i class="fas fa-lightbulb"></i><h3>PoC</h3><p>Monter des preuves de concept pour tester une solution avant sa mise en place.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projets" class="v-section">
+            <div class="container v-center">
+                <h2 class="v-title reveal">Les projets.</h2>
+                <p class="v-sub reveal"><span data-count="sae">11</span> SAÉ réalisées à l'IUT, de la plus récente à la plus ancienne.</p>
+            </div>
+            <div class="container v-track-head" style="margin-top:2.5rem">
+                <div class="filters" role="group" aria-label="Filtrer par semestre" data-filters="sae" data-target="#v-track"></div>
+                <div class="v-arrows">
+                    <button type="button" data-scroll="#v-track" data-dir="-1" aria-label="Précédent"><i class="fas fa-chevron-left"></i></button>
+                    <button type="button" data-scroll="#v-track" data-dir="1" aria-label="Suivant"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            <!-- Généré depuis data/projets.js -->
+            <div class="tiles-track" id="v-track" data-projects="sae" data-layout="tiles"></div>
+        </section>
+
+        <section id="perso" class="v-section section-alt">
+            <div class="container v-center">
+                <p class="v-eyebrow reveal">Homelab</p>
+                <h2 class="v-title reveal">Fait maison.<br>Avec des PC de récup.</h2>
+                <p class="v-sub reveal">Mon laboratoire personnel pour tester librement tout ce que j'apprends.</p>
+                <dl class="specs reveal">
+                    <div><dt>Hyperviseur</dt><dd>Proxmox VE, en cluster de plusieurs nœuds</dd></div>
+                    <div><dt>Matériel</dt><dd>De vieux PC (plus de 4 ans) récupérés gratuitement</dd></div>
+                    <div><dt>Stockage</dt><dd>Serveur TrueNAS</dd></div>
+                    <div><dt>Virtualisation</dt><dd>Machines virtuelles et conteneurs LXC</dd></div>
+                    <div><dt>Services</dt><dd>Pi-hole (DNS / DHCP), reverse proxy, VPN, serveur de jeux, multimédia, Home Assistant</dd></div>
+                </dl>
+                <div class="v-links reveal"><a class="v-link" href="perso/proxmox.html">En savoir plus sur le homelab <i class="fas fa-chevron-right"></i></a></div>
+            </div>
+        </section>
+
+        <section id="competences" class="v-section">
+            <div class="container">
+                <div class="v-center" style="margin-bottom:3rem">
+                    <h2 class="v-title reveal">Cinq compétences.</h2>
+                    <p class="v-sub reveal">Le référentiel du BUT R&amp;T, parcours cybersécurité.</p>
+                </div>
+                <div class="skills-list">
+                    <div class="skill-card competence-1 reveal">
+                        <span class="skill-num">1</span>
+                        <div>
+                            <h3>Administrer les réseaux et l'Internet</h3>
+                            <p>Configurer et maintenir les équipements réseau, sécuriser l'infrastructure, gérer les services.</p>
+                            <div class="skill-details"><span>Routeurs / switchs</span><span>Linux</span><span>VMware</span><span>Proxmox</span><span>ESXi</span></div>
+                        </div>
+                    </div>
+                    <div class="skill-card competence-2 reveal">
+                        <span class="skill-num">2</span>
+                        <div>
+                            <h3>Connecter les entreprises et les usagers</h3>
+                            <p>Déployer des infrastructures de télécommunications et intégrer des solutions de connexion.</p>
+                            <div class="skill-details"><span>Fibre optique</span><span>Ethernet</span><span>Wi-Fi</span><span>4G/5G</span><span>IoT</span></div>
+                        </div>
+                    </div>
+                    <div class="skill-card competence-3 reveal">
+                        <span class="skill-num">3</span>
+                        <div>
+                            <h3>Créer des outils et applications pour les R&amp;T</h3>
+                            <p>Développer des applications, automatiser des tâches réseau, créer des interfaces de gestion.</p>
+                            <div class="skill-details"><span>Python</span><span>Bash</span><span>PowerShell</span><span>SQL</span><span>HTML/CSS</span></div>
+                        </div>
+                    </div>
+                    <div class="skill-card competence-4 reveal">
+                        <span class="skill-num">4</span>
+                        <div>
+                            <h3>Administrer un SI sécurisé <small>cyber</small></h3>
+                            <p>Maintenir les serveurs, déployer les protocoles de sécurité, gérer les droits d'accès et protéger les données.</p>
+                            <div class="skill-details"><span>Active Directory</span><span>Firewall / VPN</span><span>PKI</span><span>Sauvegarde / PRA</span></div>
+                        </div>
+                    </div>
+                    <div class="skill-card competence-5 reveal">
+                        <span class="skill-num">5</span>
+                        <div>
+                            <h3>Surveiller un SI sécurisé <small>cyber</small></h3>
+                            <p>Analyser les flux, détecter les anomalies et les intrusions, superviser et gérer les alertes.</p>
+                            <div class="skill-details"><span>Zabbix / Nagios</span><span>Wireshark</span><span>Grafana</span><span>Logs</span><span>SIEM</span></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="contact" class="v-section section-alt">
+            <div class="container v-center">
+                <h2 class="v-title reveal">Parlons-en.</h2>
+                <p class="v-sub reveal">Une question sur un projet, mon alternance ou mon homelab ?</p>
+                <div class="v-links reveal">
+                    <a class="v-link" href="mailto:friedrich.nathanael@gmail.com">friedrich.nathanael@gmail.com <i class="fas fa-chevron-right"></i></a>
+                    <a class="v-link" href="https://linkedin.com/in/nathanaël-friedrich-967161340" target="_blank" rel="noopener noreferrer">LinkedIn <i class="fas fa-chevron-right"></i></a>
+                    <a class="v-link" href="https://github.com/DrKNath" target="_blank" rel="noopener noreferrer">GitHub <i class="fas fa-chevron-right"></i></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container"><p>&copy; <span class="current-year">2026</span> Nathanaël Friedrich — BUT R&amp;T, IUT de Colmar.</p></div>
+    </footer>
+
+    <button class="back-to-top" type="button" aria-label="Revenir en haut"><i class="fas fa-arrow-up"></i></button>
+    <script src="data/projets.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

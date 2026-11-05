@@ -140,7 +140,8 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             picker.appendChild(b);
         });
-        const DESIGNS = [['index.html', 'Carnet'], ['design-2-profil.html', 'Profil'], ['design-3-badge.html', 'Badge']];
+        const DESIGNS = [['index.html', 'Carnet'], ['design-2-profil.html', 'Profil'], ['design-3-badge.html', 'Badge'],
+            ['design-4-hello.html', 'Hello'], ['design-5-duo.html', 'Duo'], ['design-6-vitrine.html', 'Vitrine']];
         const here = location.pathname.split('/').pop() || 'index.html';
         if (!inSub) {
             const sep = document.createElement('span');
@@ -271,6 +272,15 @@ function renderProjects() {
         '<div class="project-links">' + links(p, kind === 'sae' ? 'Détails' : 'En savoir plus') + '</div>' +
     '</article>';
 
+    // Tuile (design "Vitrine") : carrousel horizontal
+    const tile = (p, kind) => '<article class="tile" data-semestre="S' + (p.semestre || '') + '" data-competence="' + (p.competence || '') + '">' +
+        '<span class="tile-eyebrow">' + esc(p.code) + (kind === 'sae' ? ' · Semestre ' + p.semestre : ' · ' + esc(p.etat || 'Perso')) + (isNew(p) ? ' · <b>Nouveau</b>' : '') + '</span>' +
+        '<h3><a href="' + esc(p.page) + '">' + esc(p.titre) + '</a></h3>' +
+        '<p>' + esc(p.resume) + '</p>' +
+        '<div class="project-tech">' + tech(p) + '</div>' +
+        '<span class="tile-more">En savoir plus <i class="fas fa-chevron-right"></i></span>' +
+    '</article>';
+
     document.querySelectorAll('[data-projects]').forEach(box => {
         const kind = box.dataset.projects;
         const layout = box.dataset.layout || 'cards';
@@ -282,11 +292,21 @@ function renderProjects() {
                     '<div class="sem-head"><span class="sem-num">S' + s + '</span><span class="sem-year">' + (ANNEES[anneeDe(s)] || '') + ' · ' + anneeDe(s) + (anneeDe(s) === 1 ? 'ʳᵉ' : 'ᵉ') + ' année</span></div>' +
                     '<div class="sem-items">' + list.filter(p => p.semestre === s).map(p => row(p, kind)).join('') + '</div>' +
                 '</div>').join('');
+        } else if (layout === 'tiles') {
+            box.innerHTML = list.map(p => tile(p, kind)).join('');
         } else if (layout === 'groups') {
             box.innerHTML = list.map(p => row(p, kind)).join('');
         } else {
             box.innerHTML = list.map(p => card(p, kind)).join('');
         }
+    });
+
+    // Flèches des carrousels : <button data-scroll="#id" data-dir="1">
+    document.querySelectorAll('[data-scroll]').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const track = document.querySelector(btn.dataset.scroll);
+            if (track) track.scrollBy({ left: Number(btn.dataset.dir) * track.clientWidth * 0.8, behavior: 'smooth' });
+        });
     });
 
     // Compteurs ("11 SAÉ réalisées"…)
