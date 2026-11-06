@@ -140,23 +140,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             picker.appendChild(b);
         });
-        const DESIGNS = [['index.html', 'Carnet'], ['design-2-profil.html', 'Profil'], ['design-3-badge.html', 'Badge'],
-            ['design-4-hello.html', 'Hello'], ['design-5-duo.html', 'Duo'], ['design-6-vitrine.html', 'Vitrine']];
-        const here = location.pathname.split('/').pop() || 'index.html';
-        if (!inSub) {
-            const sep = document.createElement('span');
-            sep.className = 'pp-label';
-            sep.textContent = 'Design :';
-            picker.appendChild(sep);
-            DESIGNS.forEach(([href, label], i) => {
-                const a = document.createElement('a');
-                a.href = href;
-                a.textContent = i + 1;
-                a.title = label;
-                a.className = 'pp-design' + (here === href ? ' current' : '');
-                picker.appendChild(a);
-            });
-        }
         const back = document.createElement('a');
         back.href = (inSub ? '../' : '') + 'design-test.html';
         back.textContent = 'Comparer';
@@ -244,13 +227,19 @@ function renderProjects() {
         (p.code_source ? '<a href="' + esc(p.code_source) + '" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> Code</a>' : '') +
         '<a href="' + esc(p.page) + '" class="more">' + plus + ' <i class="fas fa-arrow-right"></i></a>';
     const isNew = p => p.semestre && p.semestre === dernierSem;
+    // Statut : "en cours" (vert) ou "terminé" (couleur d'accent). Une SAÉ sans statut est terminée.
+    const status = p => {
+        const st = String(p.statut || 'terminé');
+        const enCours = /cours/i.test(st);
+        return '<span class="status ' + (enCours ? 'en-cours' : 'termine') + '">' + esc(st.charAt(0).toUpperCase() + st.slice(1)) + '</span>';
+    };
 
     // Carte (design "Carnet")
     const card = (p, kind) => '<article class="project-card reveal" data-semestre="S' + (p.semestre || '') + '" data-competence="' + (p.competence || '') + '">' +
         '<div class="project-content">' +
             '<div class="project-top"><span class="project-code">' + esc(p.code) + '</span>' +
                 (isNew(p) ? '<span class="tag-new">nouveau !</span>' : '') +
-                '<span class="project-sem">' + (kind === 'sae' ? 'Semestre ' + p.semestre : esc(p.etat || 'Perso')) + '</span></div>' +
+                '<span class="project-sem">' + (kind === 'sae' ? 'Semestre ' + p.semestre : 'Perso') + '</span></div>' +
             '<h3><a href="' + esc(p.page) + '">' + esc(p.titre) + '</a></h3>' +
             '<span class="project-badge">' + (kind === 'sae' ? badge(p) : 'Homelab') + '</span>' +
             '<p>' + esc(p.resume) + '</p>' +
@@ -263,8 +252,8 @@ function renderProjects() {
         '<span class="row-dot" aria-hidden="true"></span>' +
         '<div class="row-main">' +
             '<div class="row-meta"><span class="project-code">' + esc(p.code) + '</span>' +
-                '<span class="project-badge">' + (kind === 'sae' ? badge(p) : esc(p.etat || 'Perso')) + '</span>' +
-                (isNew(p) ? '<span class="tag-new">nouveau !</span>' : '') + '</div>' +
+                (kind === 'sae' ? '<span class="project-badge">' + badge(p) + '</span>' : '') +
+                status(p) + '</div>' +
             '<h3><a href="' + esc(p.page) + '">' + esc(p.titre) + '</a></h3>' +
             '<p>' + esc(p.resume) + '</p>' +
             '<div class="project-tech">' + tech(p) + '</div>' +
@@ -274,7 +263,7 @@ function renderProjects() {
 
     // Tuile (design "Vitrine") : carrousel horizontal
     const tile = (p, kind) => '<article class="tile" data-semestre="S' + (p.semestre || '') + '" data-competence="' + (p.competence || '') + '">' +
-        '<span class="tile-eyebrow">' + esc(p.code) + (kind === 'sae' ? ' · Semestre ' + p.semestre : ' · ' + esc(p.etat || 'Perso')) + (isNew(p) ? ' · <b>Nouveau</b>' : '') + '</span>' +
+        '<div class="tile-top"><span class="tile-eyebrow">' + esc(p.code) + (kind === 'sae' ? ' · S' + p.semestre : '') + (isNew(p) ? ' · <b>Nouveau</b>' : '') + '</span>' + status(p) + '</div>' +
         '<h3><a href="' + esc(p.page) + '">' + esc(p.titre) + '</a></h3>' +
         '<p>' + esc(p.resume) + '</p>' +
         '<div class="project-tech">' + tech(p) + '</div>' +
@@ -284,7 +273,8 @@ function renderProjects() {
     document.querySelectorAll('[data-projects]').forEach(box => {
         const kind = box.dataset.projects;
         const layout = box.dataset.layout || 'cards';
-        const list = kind === 'sae' ? sae : (data.perso || []);
+        let list = kind === 'sae' ? sae : (data.perso || []);
+        if (box.dataset.limit) list = list.slice(0, Number(box.dataset.limit));
         if (layout === 'groups' && kind === 'sae') {
             const sems = [...new Set(list.map(p => p.semestre))];
             box.innerHTML = sems.map(s =>
@@ -299,6 +289,20 @@ function renderProjects() {
         } else {
             box.innerHTML = list.map(p => card(p, kind)).join('');
         }
+    });
+
+    // Bouton qui déplie / replie un bloc : <button data-toggle="#id" data-open="..." data-close="...">
+    document.querySelectorAll('[data-toggle]').forEach(btn => {
+        const target = document.querySelector(btn.dataset.toggle);
+        const label = btn.querySelector('span');
+        if (!target) return;
+        btn.addEventListener('click', () => {
+            const open = target.hasAttribute('hidden');
+            target.toggleAttribute('hidden', !open);
+            btn.setAttribute('aria-expanded', String(open));
+            if (label) label.textContent = open ? btn.dataset.close : btn.dataset.open;
+            if (open) target.querySelectorAll('.reveal').forEach(r => r.classList.add('in-view'));
+        });
     });
 
     // Flèches des carrousels : <button data-scroll="#id" data-dir="1">

@@ -16,6 +16,11 @@
      tech        liste d'outils
      page        lien vers la page détaillée (ex : "S4/sae-401.html")
      code_source lien GitHub (facultatif)
+     statut      'terminé' (par défaut) ou 'en cours'
+                 → "En cours" s'affiche en vert, "Terminé" en couleur d'accent
+
+   Sur la page d'accueil, le carrousel montre les 6 SAÉ les plus
+   récentes ; toutes les autres restent dans "Voir toutes les SAÉ".
    ========================================================= */
 window.PORTFOLIO = {
     competences: {
@@ -34,7 +39,8 @@ window.PORTFOLIO = {
             resume: '[Ce que tu as fait, en une ou deux phrases.]',
             tech: ['[Outil 1]', '[Outil 2]'],
             page: 'S4/sae-401.html',
-            code_source: ''
+            code_source: '',
+            statut: 'en cours'
         },
         */
         {
@@ -125,7 +131,7 @@ window.PORTFOLIO = {
     /* Projets perso / homelab : même principe */
     perso: [
         {
-            code: 'perso/proxmox', etat: 'En cours', competence: 4,
+            code: 'perso/proxmox', statut: 'en cours', competence: 4,
             titre: 'Cluster Proxmox & auto-hébergement',
             resume: 'Un cluster Proxmox VE de plusieurs nœuds, monté avec des vieux PC récupérés, plus un serveur TrueNAS. J\'y héberge DNS, VPN, reverse proxy, domotique…',
             tech: ['Proxmox VE', 'LXC', 'TrueNAS', 'Pi-hole', 'VPN'],
@@ -133,7 +139,7 @@ window.PORTFOLIO = {
         }
         /* ===== Modèle pour un autre projet perso =====
         ,{
-            code: 'perso/[nom]', etat: 'Terminé', competence: 3,
+            code: 'perso/[nom]', statut: 'terminé', competence: 3,
             titre: '[Titre]',
             resume: '[Description courte]',
             tech: ['[Outil]'],
